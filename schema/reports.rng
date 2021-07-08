@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+         xmlns:tei="http://www.tei-c.org/ns/1.0"
+         xmlns:teix="http://www.tei-c.org/ns/Examples"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         ns="http://www.w3.org/1999/xhtml"><!--
+Schema generated from ODD source 2021-07-08T23:24:46Z. .  
+--><!---->
+   <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+           prefix="tei"
+           uri="http://www.tei-c.org/ns/1.0"/>
+   <define name="html">
+      <element name="html" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <group>
+            <ref name="head"/>
+            <ref name="body"/>
+         </group>
+         <ref name="att.id.attributes"/>
+         <empty/>
+      </element>
+   </define>
+   <define name="head">
+      <element name="head" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <group>
+            <ref name="title"/>
+            <group>
+               <ref name="meta"/>
+               <ref name="meta"/>
+               <ref name="meta"/>
+               <ref name="meta"/>
+               <ref name="meta"/>
+               <ref name="meta"/>
+               <zeroOrMore>
+                  <ref name="meta"/>
+               </zeroOrMore>
+            </group>
+            <zeroOrMore>
+               <ref name="link"/>
+            </zeroOrMore>
+         </group>
+      </element>
+   </define>
+   <define name="title">
+      <element name="title" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <text/>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="myTEI-title-title_format-constraint-rule-1">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                      context="xh:title">
+               <sch:let name="title" value="normalize-space(.)"/>
+               <sch:let name="date"
+                        value="format-date(//xh:meta[@name='dc.date']/@content, '[FNn], [MNn] [D], [Y0001]')"/>
+               <sch:let name="publisher" value="//xh:meta[@name='dc.publisher']/@content"/>
+               <sch:let name="expected" value="concat($publisher, ' - ', $date)"/>
+               <sch:assert test="$expected = $title">
+                           Title should be <sch:value-of select="$expected"/>
+               </sch:assert>
+            </sch:rule>
+         </pattern>
+      </element>
+   </define>
+   <define name="meta">
+      <element name="meta" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <empty/>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="myTEI-meta-meta_url_constraints-constraint-rule-2">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                      context="xh:meta[@name='dc.source.url' or @name='dc.source.facsimile']">
+               <sch:assert test="matches(@content, '^https?://')">
+                           Must be a proper URL
+                        </sch:assert>
+            </sch:rule>
+         </pattern>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="myTEI-meta-meta_date_constraints-constraint-rule-3">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                      context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
+               <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')">
+                           Must be YYYY-MM-DD
+                        </sch:assert>
+            </sch:rule>
+         </pattern>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="myTEI-meta-meta_lang_constraints-constraint-rule-4">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                      context="xh:meta[@name='dc.language']">
+               <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')">
+                           Must be one of de, en, es, fr, it.
+                        </sch:assert>
+            </sch:rule>
+         </pattern>
+         <optional>
+            <attribute name="content">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="name">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>dc.date</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.language</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.publisher</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.publisher.edition</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.region</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.region.city</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.source</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.source.database</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.source.facsimile</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.source.institution</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.source.url</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.publisher.id</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.publisher.sortable</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>dc.date.updated</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>wr.sortable</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>wr.translated</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>wd.translated</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>wr.word-count</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>wr.wordcount</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>index.document</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>index.paragraph</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-sortable">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="body">
+      <element name="body" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <group>
+            <ref name="div"/>
+            <optional>
+               <ref name="div"/>
+            </optional>
+         </group>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="myTEI-body-div_id-constraint-assert-5">
+            <rule context="xh:body">
+               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xh="http://www.w3.org/1999/xhtml"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           test="xh:div[@id='original']">
+                           One div with id='original' is required.                           
+                        </sch:assert>
+            </rule>
+         </pattern>
+      </element>
+   </define>
+   <define name="div">
+      <element name="div" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <oneOrMore>
+            <ref name="p"/>
+         </oneOrMore>
+         <attribute name="id">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <choice>
+               <value>original</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Original text) </a:documentation>
+               <value>translation</value>
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Translated text) </a:documentation>
+            </choice>
+         </attribute>
+         <optional>
+            <attribute name="lang">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>de</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(German) </a:documentation>
+                  <value>en</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(English) </a:documentation>
+                  <value>es</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Spanish) </a:documentation>
+                  <value>fr</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(French) </a:documentation>
+                  <value>it</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">(Italian) </a:documentation>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="p">
+      <element name="p" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <group>
+            <zeroOrMore>
+               <choice>
+                  <text/>
+                  <ref name="model.phrase"/>
+               </choice>
+            </zeroOrMore>
+            <zeroOrMore>
+               <ref name="a"/>
+            </zeroOrMore>
+         </group>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="myTEI-p-p_punct-constraint-assert-6">
+            <rule context="xh:p">
+               <sch:let xmlns="http://www.tei-c.org/ns/1.0"
+                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xh="http://www.w3.org/1999/xhtml"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        name="text"
+                        value="normalize-space(.)"/>
+               <sch:let xmlns="http://www.tei-c.org/ns/1.0"
+                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xh="http://www.w3.org/1999/xhtml"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        name="last"
+                        value="substring($text, string-length($text))"/>
+               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xh="http://www.w3.org/1999/xhtml"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
+                        Paragraphs that aren't headings or signatures should not end in "<sch:value-of select="$last"/>". Found <sch:value-of select="$text"/>.                          
+                     </sch:assert>
+            </rule>
+         </pattern>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="myTEI-p-p_ellipsis-constraint-assert-7">
+            <rule context="xh:p">
+               <sch:let xmlns="http://www.tei-c.org/ns/1.0"
+                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xh="http://www.w3.org/1999/xhtml"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        name="text"
+                        value="normalize-space(text())"/>
+               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xh="http://www.w3.org/1999/xhtml"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))">
+                        Open bracket [ must have closing braket ]    
+                     </sch:assert>
+               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xh="http://www.w3.org/1999/xhtml"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))">
+                        Close bracket ] does not correspond to open bracket [    
+                     </sch:assert>
+               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xh="http://www.w3.org/1999/xhtml"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           test="not(matches($text, '(\[\s+\.\.\.)|(\.\.\.\s+\])'))">
+                        Spaces are not allowed between brackets and elipsis
+                     </sch:assert>
+               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xh="http://www.w3.org/1999/xhtml"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))">
+                        Spaces are not allowed inside elipsis
+                     </sch:assert>
+            </rule>
+         </pattern>
+         <ref name="att.id.attributes"/>
+         <optional>
+            <attribute name="class">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               <choice>
+                  <value>heading</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <value>signature</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+               </choice>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="a">
+      <element name="a">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <empty/>
+         <optional>
+            <attribute name="href">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="class">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-document">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-paragraph">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-similarity">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-paper-id">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="link">
+      <element name="link">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <empty/>
+         <optional>
+            <attribute name="href">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="class">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="rel">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-similarity">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-type">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <optional>
+            <attribute name="data-paper-id">
+               <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            </attribute>
+         </optional>
+         <empty/>
+      </element>
+   </define>
+   <define name="b">
+      <element name="b" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <zeroOrMore>
+            <choice>
+               <text/>
+               <ref name="model.phrase"/>
+            </choice>
+         </zeroOrMore>
+      </element>
+   </define>
+   <define name="br">
+      <element name="br" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
+      </element>
+   </define>
+   <define name="i">
+      <element name="i" ns="http://www.w3.org/1999/xhtml">
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <zeroOrMore>
+            <choice>
+               <text/>
+               <ref name="model.phrase"/>
+            </choice>
+         </zeroOrMore>
+      </element>
+   </define>
+   <define name="att.id.attributes">
+      <ref name="att.id.attribute.id"/>
+   </define>
+   <define name="att.id.attribute.id">
+      <optional>
+         <attribute name="id">
+            <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+            <data type="ID"/>
+         </attribute>
+      </optional>
+   </define>
+   <define name="model.phrase">
+      <choice>
+         <ref name="b"/>
+         <ref name="br"/>
+         <ref name="i"/>
+      </choice>
+   </define>
+   <start>
+      <choice>
+         <ref name="html"/>
+      </choice>
+   </start>
+</grammar>
