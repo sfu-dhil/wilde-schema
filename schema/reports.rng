@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-08T23:24:46Z. .  
+Schema generated from ODD source 2021-07-08T23:32:38Z. .  
 --><!---->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
@@ -296,7 +296,7 @@ Schema generated from ODD source 2021-07-08T23:24:46Z. .
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                        Paragraphs that aren't headings or signatures should not end in "<sch:value-of select="$last"/>". Found <sch:value-of select="$text"/>.                          
+                        Paragraphs should not end in "<sch:value-of select="$last"/>" instead of . ! or ?.                          
                      </sch:assert>
             </rule>
          </pattern>
