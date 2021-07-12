@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-12T16:26:58Z. .  
+Schema generated from ODD source 2021-07-12T16:37:51Z. .  
 --><!---->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
@@ -215,7 +215,7 @@ Schema generated from ODD source 2021-07-12T16:26:58Z. .
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="xh:div[@id='original']">
-                           One div with id='original' is required.                           
+                           One div with id='original' is required.
                         </sch:assert>
             </rule>
          </pattern>
@@ -296,7 +296,7 @@ Schema generated from ODD source 2021-07-12T16:26:58Z. .
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                        Paragraphs should not end in "<sch:value-of select="$last"/>" instead of . ! or ?.                          
+                        Paragraphs should not end in "<sch:value-of select="$last"/>" instead of . ! or ?.
                      </sch:assert>
             </rule>
          </pattern>
@@ -320,14 +320,14 @@ Schema generated from ODD source 2021-07-12T16:26:58Z. .
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))">
-                        Open bracket [ must have closing braket ]    
+                        Open bracket [ must have closing braket ]
                      </sch:assert>
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))">
-                        Close bracket ] does not correspond to open bracket [    
+                        Close bracket ] does not correspond to open bracket [
                      </sch:assert>
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -347,7 +347,7 @@ Schema generated from ODD source 2021-07-12T16:26:58Z. .
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="not($text = '[...']">
+                           test="not($text = '[...]')">
                         Omitted paragraphs are not indicated with &lt;p&gt;[...]&lt;/p&gt;
                      </sch:assert>
             </rule>

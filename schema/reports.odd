@@ -2,7 +2,7 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" 
+<TEI xmlns="http://www.tei-c.org/ns/1.0"
    xmlns:sch="http://purl.oclc.org/dsdl/schematron"
    xmlns:xh="http://www.w3.org/1999/xhtml"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -63,7 +63,7 @@
                         <sch:let name="expected" value="concat($publisher, ' - ', $date)"/>
                         <sch:assert test="$expected = $title">
                            Title should be <sch:value-of select="$expected"/>
-                        </sch:assert>                     
+                        </sch:assert>
                      </sch:rule>
                   </constraint>
                </constraintSpec>
@@ -73,40 +73,40 @@
                <content>
                   <empty/>
                </content>
-               
+
                <constraintSpec ident="meta_url_constraints" scheme="schematron">
                   <constraint>
                      <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                      <sch:rule context="xh:meta[@name='dc.source.url' or @name='dc.source.facsimile']">
                         <sch:assert test="matches(@content, '^https?://')">
                            Must be a proper URL
-                        </sch:assert>                     
+                        </sch:assert>
                      </sch:rule>
                   </constraint>
                </constraintSpec>
-               
+
                <constraintSpec ident="meta_date_constraints" scheme="schematron">
                   <constraint>
                      <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                      <sch:rule context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
                         <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')">
                            Must be YYYY-MM-DD
-                        </sch:assert>                     
+                        </sch:assert>
                      </sch:rule>
                   </constraint>
                </constraintSpec>
-               
+
                <constraintSpec ident="meta_lang_constraints" scheme="schematron">
                   <constraint>
                      <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                      <sch:rule context="xh:meta[@name='dc.language']">
                         <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')">
                            Must be one of de, en, es, fr, it.
-                        </sch:assert>                     
+                        </sch:assert>
                      </sch:rule>
                   </constraint>
                </constraintSpec>
-               
+
                <attList>
                   <attDef ident="content">
                      <datatype>
@@ -126,7 +126,7 @@
                         <valItem ident="dc.source.facsimile"/>
                         <valItem ident="dc.source.institution"/>
                         <valItem ident="dc.source.url"/>
-                        
+
                         <valItem ident="dc.publisher.id"/>
                         <valItem ident="dc.publisher.sortable"/>
                         <valItem ident="dc.date.updated"/>
@@ -139,7 +139,7 @@
                         <valItem ident="index.paragraph"/>
                      </valList>
                   </attDef>
-                  
+
                   <attDef ident="data-sortable">
                      <datatype>
                         <dataRef key="teidata.text"/>
@@ -156,8 +156,8 @@
                   <constraint>
                      <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:assert test="xh:div[@id='original']">
-                           One div with id='original' is required.                           
-                        </sch:assert>                     
+                           One div with id='original' is required.
+                        </sch:assert>
                   </constraint>
                </constraintSpec>
             </elementSpec>
@@ -201,9 +201,9 @@
             <elementSpec ident="p" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
                <classes>
                   <memberOf key="att.id"></memberOf>
-               </classes>               
+               </classes>
                <content>
-                  <sequence>                     
+                  <sequence>
                      <alternate minOccurs="0" maxOccurs="unbounded">
                         <textNode/>
                         <classRef key="model.phrase"/>
@@ -211,46 +211,46 @@
                      <elementRef key="a" minOccurs="0" maxOccurs="unbounded"/>
                   </sequence>
                </content>
-               
+
                <constraintSpec ident="p_punct" scheme="schematron">
                   <constraint>
                      <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                      <sch:let name="text" value="normalize-space(.)"/>
                      <sch:let name="last" value="substring($text, string-length($text))" />
                      <sch:assert test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                        Paragraphs should not end in "<sch:value-of select="$last"/>" instead of . ! or ?.                          
+                        Paragraphs should not end in "<sch:value-of select="$last"/>" instead of . ! or ?.
                      </sch:assert>
                   </constraint>
                </constraintSpec>
-               
+
                <constraintSpec ident="p_ellipsis" scheme="schematron">
                   <constraint>
                      <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                      <sch:let name="text" value="normalize-space(text())"/>
-                     
+
                      <sch:assert test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))">
-                        Open bracket [ must have closing braket ]    
+                        Open bracket [ must have closing braket ]
                      </sch:assert>
-                     
+
                      <sch:assert test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))">
-                        Close bracket ] does not correspond to open bracket [    
+                        Close bracket ] does not correspond to open bracket [
                      </sch:assert>
-                     
+
                      <sch:assert test="not(matches($text, '(\[\s+\.\.\.)|(\.\.\.\s+\])'))">
                         Spaces are not allowed between brackets and elipsis
                      </sch:assert>
-                     
+
                      <sch:assert test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))">
                         Spaces are not allowed inside elipsis
                      </sch:assert>
-                     
-                     <sch:assert test="not($text = '[...']">
+
+                     <sch:assert test="not($text = '[...]')">
                         Omitted paragraphs are not indicated with <![CDATA[<p>[...]</p>]]>
                      </sch:assert>
-                     
+
                   </constraint>
                </constraintSpec>
-               
+
                <attList>
                   <attDef ident="class">
                      <valList type="closed">
@@ -289,7 +289,7 @@
                   <attDef ident="data-paper-id"><datatype><dataRef key="teidata.text"/></datatype></attDef>
                </attList>
             </elementSpec>
-            
+
             <elementSpec ident="b" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
                <classes>
                   <memberOf key="model.phrase"/>
@@ -310,7 +310,7 @@
                   <empty/>
                </content>
             </elementSpec>
-            
+
             <elementSpec ident="i" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
                <classes>
                   <memberOf key="model.phrase"/>
