@@ -29,6 +29,7 @@
     
     <xsl:template match="a" priority="1"/>    
     <xsl:template match="p/@id"/>
+    <xsl:template match="p[text()='[...]']"/>
     <xsl:template match="div[@id='translation']"/>
     
     <!-- Make sure the head tag starts with a title and then contains only meta 
