@@ -227,9 +227,11 @@
                   <constraint>
                      <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                      <sch:let name="text" value="normalize-space(text())"/>
+                     
                      <sch:assert test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))">
                         Open bracket [ must have closing braket ]    
                      </sch:assert>
+                     
                      <sch:assert test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))">
                         Close bracket ] does not correspond to open bracket [    
                      </sch:assert>
@@ -240,6 +242,10 @@
                      
                      <sch:assert test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))">
                         Spaces are not allowed inside elipsis
+                     </sch:assert>
+                     
+                     <sch:assert test="not($text = '[...']">
+                        Omitted paragraphs are not indicated with <![CDATA[<p>[...]</p>]]>
                      </sch:assert>
                      
                   </constraint>
