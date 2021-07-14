@@ -2,343 +2,508 @@
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
 <?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_odds.rng" type="application/xml"
 	schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0"
-   xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-   xmlns:xh="http://www.w3.org/1999/xhtml"
-   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+   xmlns:xh="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>Title</title>
+            <title>Schema and Documentation for the <title level="m">Wilde Trials News
+                  Archive</title> Reports</title>
          </titleStmt>
          <publicationStmt>
-            <p>Publication Information</p>
+            <p>This work is licensed under a Creative Commons Attribution-NonCommercial-ShareAlike
+               4.0 International License.</p>
          </publicationStmt>
          <sourceDesc>
-            <p>Information about the source</p>
+            <p>Created to provide a highly constrained XHTML 5 vocabulary for the report
+               transcriptions in the Wilde Trails News Archive.</p>
          </sourceDesc>
       </fileDesc>
    </teiHeader>
    <text>
       <body>
-         <schemaSpec ident="myTEI" start="html" ns="http://www.w3.org/1999/xhtml">
+         <head>
+            <title level="m">Wilde Trials News Archive</title>
+         </head>
+         <head>Manual for authors, editors, and coders</head>
+         <p>Michael Joyce</p>
 
-            <moduleSpec ident="xhtml5">
-               <desc>Base schema for all XHTML 5 elements.</desc>
-            </moduleSpec>
+         <div xml:id="requirements">
+            <head>Requirements</head>
+            <p>To <emph>edit</emph> reports for the site, you will need a computer with the
+               following software:</p>
+            <list>
+               <item> The <ref target="https://desktop.github.com/">GitHub Desktop</ref> client to
+                  check out the reports, commit changes to them, and send your commits back to
+                  GitHub </item>
+               <item>The <ref target="https://www.oxygenxml.com/download.html">Oxygen XML
+                     Editor</ref>. It it technically possible to edit the materials in any text
+                  editor, but the code will not be checked or constrained, and you will not have a
+                  lot of the editing help provided by the Oxygen editor, so the results will most
+                  likely be invalid and may break the website.</item>
+            </list>
+            <p>You must also sign up for a <ref target="https://github.com/join">GitHub</ref>
+               account. Once you have signed up for an account, we can grant access.</p>
+         </div>
 
-            <elementSpec ident="html" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <classes>
-                  <memberOf key="att.id"/>
-               </classes>
-               <content>
-                  <sequence>
-                     <elementRef key="head" minOccurs="1" maxOccurs="1"/>
-                     <elementRef key="body" minOccurs="1" maxOccurs="1"/>
-                  </sequence>
-               </content>
-            </elementSpec>
+         <div xml:id="organization">
+            <head>Project Organization</head>
+            <p>Reports are organized in to folders by region (ex. Algeria, Britain) and then by
+               newspaper title (eg. Britain/Bristol Mercury). In the newspaper folder each file is
+               named as follows: <eg>NEWSPAPER TITLE - Date.xml</eg>. If there are multiple reports
+               on a single day, append .a, .b., .c, etc. to the date like so: <eg>NEWSPAPER TITLE -
+                  Date.a.xml</eg></p>
 
-            <elementSpec ident="head" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <content>
-                  <sequence>
-                     <elementRef key="title" minOccurs="1" maxOccurs="1"/>
-                     <elementRef key="meta" minOccurs="6" maxOccurs="unbounded"/>
-                     <elementRef key="link" minOccurs="0" maxOccurs="unbounded"/>
-                  </sequence>
-               </content>
-            </elementSpec>
+            <p>There are additional restrictions on file and folder names:</p>
+            <list>
+               <item>Region names and newspaper titles must be capitalized.</item>
+               <item>Accented characters are forbidden in file and folder names. Replace all
+                  accented characters in file and folder names with underscores (_).</item>
+               <item>File and folder names must not start or end with a space character.</item>
+            </list>
+         </div>
 
-            <elementSpec ident="title" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <content>
-                  <textNode/>
-               </content>
-               <constraintSpec ident="title_format" scheme="schematron">
-                  <constraint>
-                     <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                     <sch:rule context="xh:title">
-                        <sch:let name="title" value="normalize-space(.)"/>
-                        <sch:let name="date" value="format-date(//xh:meta[@name='dc.date']/@content, '[FNn], [MNn] [D], [Y0001]')"/>
-                        <sch:let name="publisher" value="//xh:meta[@name='dc.publisher']/@content"/>
-                        <sch:let name="expected" value="concat($publisher, ' - ', $date)"/>
-                        <sch:assert test="$expected = $title">
-                           Title should be <sch:value-of select="$expected"/>
+         <div xml:id="github">
+            <head>Using the GitHub Repository</head>
+         </div>
+
+         <div xml:id="report">
+            <head>Creating and Editing Reports</head>
+         </div>
+
+         <div xml:id="guidelines">
+            <head>Guidelines for Tagging Reports</head>
+         </div>
+
+         <div xml:id="faq">
+            <head>Frequently Asked Questions</head>
+         </div>
+
+         <div xml:id="oxygen">
+            <head>Navigating and Using Oxygen</head>
+         </div>
+
+         <div xml:id="odd">
+            <head>Generating the Schema and Documentation</head>
+         </div>
+
+      </body>
+      <back>
+         <div>
+            <schemaSpec ident="wildeReports" start="html" ns="http://www.w3.org/1999/xhtml">
+
+               <moduleSpec ident="xhtml5">
+                  <desc>Base schema for Wilde Trials XHTML 5 Reports.</desc>
+               </moduleSpec>
+
+               <elementSpec ident="html" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <classes>
+                     <memberOf key="att.id"/>
+                  </classes>
+                  <content>
+                     <sequence>
+                        <elementRef key="head" minOccurs="1" maxOccurs="1"/>
+                        <elementRef key="body" minOccurs="1" maxOccurs="1"/>
+                     </sequence>
+                  </content>
+               </elementSpec>
+
+               <elementSpec ident="head" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <content>
+                     <sequence>
+                        <elementRef key="title" minOccurs="1" maxOccurs="1"/>
+                        <elementRef key="meta" minOccurs="6" maxOccurs="unbounded"/>
+                        <elementRef key="link" minOccurs="0" maxOccurs="unbounded"/>
+                     </sequence>
+                  </content>
+               </elementSpec>
+
+               <elementSpec ident="title" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <content>
+                     <textNode/>
+                  </content>
+                  <constraintSpec ident="title_format" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:rule context="xh:title">
+                           <sch:let name="title" value="normalize-space(.)"/>
+                           <sch:let name="date"
+                              value="format-date(//xh:meta[@name='dc.date']/@content, '[FNn], [MNn] [D], [Y0001]')"/>
+                           <sch:let name="publisher"
+                              value="//xh:meta[@name='dc.publisher']/@content"/>
+                           <sch:let name="expected" value="concat($publisher, ' - ', $date)"/>
+                           <sch:assert test="$expected = $title"> Title should be <sch:value-of
+                                 select="$expected"/>
+                           </sch:assert>
+                        </sch:rule>
+                     </constraint>
+                  </constraintSpec>
+               </elementSpec>
+
+               <elementSpec ident="meta" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <content>
+                     <empty/>
+                  </content>
+
+                  <constraintSpec ident="meta_url_constraints" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:rule
+                           context="xh:meta[@name='dc.source.url' or @name='dc.source.facsimile']">
+                           <sch:assert test="matches(@content, '^https?://')"> Must be a proper URL
+                           </sch:assert>
+                        </sch:rule>
+                     </constraint>
+                  </constraintSpec>
+
+                  <constraintSpec ident="meta_region_constraints" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:rule context="xh:meta[@name='dc.region']">
+                           <sch:assert
+                              test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')">
+                              Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
+                              Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy,
+                              Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto
+                              Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
+                           </sch:assert>
+                        </sch:rule>
+                     </constraint>
+                  </constraintSpec>
+
+                  <constraintSpec ident="meta_date_constraints" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:rule context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
+                           <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Must be
+                              YYYY-MM-DD </sch:assert>
+                        </sch:rule>
+                     </constraint>
+                  </constraintSpec>
+
+                  <constraintSpec ident="meta_lang_constraints" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:rule context="xh:meta[@name='dc.language']">
+                           <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> Must be one
+                              of de, en, es, fr, it. </sch:assert>
+                        </sch:rule>
+                     </constraint>
+                  </constraintSpec>
+
+                  <attList>
+                     <attDef ident="content">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="name">
+                        <valList type="closed">
+                           <valItem ident="dc.date">
+                              <desc>Date that the report was published</desc>
+                           </valItem>
+                           <valItem ident="dc.language">
+                              <desc>Primary language of the report</desc>
+                           </valItem>
+                           <valItem ident="dc.publisher">
+                              <desc>Name of the newspaper or publisher of the paper</desc>
+                           </valItem>
+                           <valItem ident="dc.publisher.edition">
+                              <desc>Optional. If the report appeared in a special edition include it
+                                 here.</desc>
+                           </valItem>
+                           <valItem ident="dc.region">
+                              <desc>The name of the region where the report was published</desc>
+                           </valItem>
+                           <valItem ident="dc.region.city">
+                              <desc>The name of the city where the report was published</desc>
+                           </valItem>
+                           <valItem ident="dc.source"/>
+                           <valItem ident="dc.source.database"/>
+                           <valItem ident="dc.source.facsimile"/>
+                           <valItem ident="dc.source.institution"/>
+                           <valItem ident="dc.source.url"/>
+
+                           <valItem ident="dc.publisher.id">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="dc.publisher.sortable">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="dc.date.updated">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="wr.sortable">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="wr.translated">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="wd.translated">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="wr.word-count">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="wr.wordcount">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="index.document">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                           <valItem ident="index.paragraph">
+                              <desc>Automatically generated. Do not add or edit.</desc>
+                           </valItem>
+                        </valList>
+                     </attDef>
+
+                     <attDef ident="data-sortable">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                  </attList>
+               </elementSpec>
+
+               <elementSpec ident="body" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <content>
+                     <elementRef key="div" minOccurs="1" maxOccurs="2"/>
+                  </content>
+                  <constraintSpec ident="div_id" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:assert test="xh:div[@id='original']"> One div with id='original' is
+                           required. </sch:assert>
+                     </constraint>
+                  </constraintSpec>
+               </elementSpec>
+
+               <elementSpec ident="div" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <classes>
+                     <memberOf key="att.id"/>
+                  </classes>
+                  <content>
+                     <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
+                  </content>
+                  <attList>
+                     <attDef ident="id" mode="replace" usage="req">
+                        <valList type="closed">
+                           <valItem ident="original">
+                              <gloss>Original text</gloss>
+                           </valItem>
+                           <valItem ident="translation">
+                              <gloss>Translated text</gloss>
+                           </valItem>
+                        </valList>
+                     </attDef>
+                     <attDef ident="lang">
+                        <valList type="closed">
+                           <valItem ident="de">
+                              <gloss>German</gloss>
+                           </valItem>
+                           <valItem ident="en">
+                              <gloss>English</gloss>
+                           </valItem>
+                           <valItem ident="es">
+                              <gloss>Spanish</gloss>
+                           </valItem>
+                           <valItem ident="fr">
+                              <gloss>French</gloss>
+                           </valItem>
+                           <valItem ident="it">
+                              <gloss>Italian</gloss>
+                           </valItem>
+                        </valList>
+                     </attDef>
+                  </attList>
+               </elementSpec>
+
+               <elementSpec ident="p" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <classes>
+                     <memberOf key="att.id"/>
+                  </classes>
+                  <content>
+                     <sequence>
+                        <alternate minOccurs="0" maxOccurs="unbounded">
+                           <textNode/>
+                           <classRef key="model.phrase"/>
+                        </alternate>
+                        <elementRef key="a" minOccurs="0" maxOccurs="unbounded"/>
+                     </sequence>
+                  </content>
+
+                  <constraintSpec ident="p_punct" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:let name="text" value="normalize-space(.)"/>
+                        <sch:let name="last" value="substring($text, string-length($text))"/>
+                        <sch:assert test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
+                           Paragraphs should not end in "<sch:value-of select="$last"/>" instead of
+                           . ! or ?. </sch:assert>
+                     </constraint>
+                  </constraintSpec>
+
+                  <constraintSpec ident="p_ellipsis" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:let name="text" value="normalize-space(string())"/>
+                        <sch:assert test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))"> Open bracket
+                           [ must have closing braket ] </sch:assert>
+                        <sch:assert test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))"> Close bracket
+                           ] does not correspond to open bracket [ </sch:assert>
+                        <sch:assert test="not(matches($text, '(\[\s+\.\.\.)|(\.\.\.\s+\])'))">
+                           Spaces are not allowed between brackets and elipsis </sch:assert>
+                        <sch:assert test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))"> Spaces
+                           are not allowed inside elipsis </sch:assert>
+                        <sch:assert test="not($text = '[...]')"> Omitted/unrelated paragraphs should
+                           not be indicated with <![CDATA[<p>[...]</p>]]>
                         </sch:assert>
-                     </sch:rule>
-                  </constraint>
-               </constraintSpec>
-            </elementSpec>
+                     </constraint>
+                  </constraintSpec>
 
-            <elementSpec ident="meta" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <content>
-                  <empty/>
-               </content>
+                  <attList>
+                     <attDef ident="class">
+                        <valList type="closed">
+                           <valItem ident="heading"/>
+                           <valItem ident="signature"/>
+                        </valList>
+                     </attDef>
+                  </attList>
+               </elementSpec>
 
-               <constraintSpec ident="meta_url_constraints" scheme="schematron">
-                  <constraint>
-                     <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                     <sch:rule context="xh:meta[@name='dc.source.url' or @name='dc.source.facsimile']">
-                        <sch:assert test="matches(@content, '^https?://')">
-                           Must be a proper URL
-                        </sch:assert>
-                     </sch:rule>
-                  </constraint>
-               </constraintSpec>
+               <elementSpec ident="a">
+                  <desc>Added automatically by the processing tools. Do not add or edit.</desc>
+                  <content>
+                     <empty/>
+                  </content>
+                  <attList>
+                     <attDef ident="href">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="class">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-document">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-paragraph">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-similarity">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-type">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-paper-id">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                  </attList>
+               </elementSpec>
 
-               <constraintSpec ident="meta_date_constraints" scheme="schematron">
-                  <constraint>
-                     <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                     <sch:rule context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
-                        <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')">
-                           Must be YYYY-MM-DD
-                        </sch:assert>
-                     </sch:rule>
-                  </constraint>
-               </constraintSpec>
+               <elementSpec ident="link">
+                  <desc>Added automatically by the processing tools. Do not add or edit.</desc>
+                  <content>
+                     <empty/>
+                  </content>
+                  <attList>
+                     <attDef ident="href">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="class">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="rel">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-similarity">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-type">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                     <attDef ident="data-paper-id">
+                        <datatype>
+                           <dataRef key="teidata.text"/>
+                        </datatype>
+                     </attDef>
+                  </attList>
+               </elementSpec>
 
-               <constraintSpec ident="meta_lang_constraints" scheme="schematron">
-                  <constraint>
-                     <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                     <sch:rule context="xh:meta[@name='dc.language']">
-                        <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')">
-                           Must be one of de, en, es, fr, it.
-                        </sch:assert>
-                     </sch:rule>
-                  </constraint>
-               </constraintSpec>
-
-               <attList>
-                  <attDef ident="content">
-                     <datatype>
-                        <dataRef key="teidata.text"/>
-                     </datatype>
-                  </attDef>
-                  <attDef ident="name">
-                     <valList type="closed">
-                        <valItem ident="dc.date"/>
-                        <valItem ident="dc.language"/>
-                        <valItem ident="dc.publisher"/>
-                        <valItem ident="dc.publisher.edition"/>
-                        <valItem ident="dc.region"/>
-                        <valItem ident="dc.region.city"/>
-                        <valItem ident="dc.source"/>
-                        <valItem ident="dc.source.database"/>
-                        <valItem ident="dc.source.facsimile"/>
-                        <valItem ident="dc.source.institution"/>
-                        <valItem ident="dc.source.url"/>
-
-                        <valItem ident="dc.publisher.id"/>
-                        <valItem ident="dc.publisher.sortable"/>
-                        <valItem ident="dc.date.updated"/>
-                        <valItem ident="wr.sortable"/>
-                        <valItem ident="wr.translated"/>
-                        <valItem ident="wd.translated"/>
-                        <valItem ident="wr.word-count"/>
-                        <valItem ident="wr.wordcount"/>
-                        <valItem ident="index.document"/>
-                        <valItem ident="index.paragraph"/>
-                     </valList>
-                  </attDef>
-
-                  <attDef ident="data-sortable">
-                     <datatype>
-                        <dataRef key="teidata.text"/>
-                     </datatype>
-                  </attDef>
-               </attList>
-            </elementSpec>
-
-            <elementSpec ident="body" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <content>
-                  <elementRef key="div" minOccurs="1" maxOccurs="2"/>
-               </content>
-               <constraintSpec ident="div_id" scheme="schematron">
-                  <constraint>
-                     <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                        <sch:assert test="xh:div[@id='original']">
-                           One div with id='original' is required.
-                        </sch:assert>
-                  </constraint>
-               </constraintSpec>
-            </elementSpec>
-
-            <elementSpec ident="div" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <classes>
-                  <memberOf key="att.id"/>
-               </classes>
-               <content>
-                  <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
-               </content>
-               <attList>
-                  <attDef ident="id" mode="replace" usage="req">
-                     <valList type="closed">
-                        <valItem ident="original"><gloss>Original text</gloss></valItem>
-                        <valItem ident="translation"><gloss>Translated text</gloss></valItem>
-                     </valList>
-                  </attDef>
-                  <attDef ident="lang">
-                     <valList type="closed">
-                        <valItem ident="de">
-                           <gloss>German</gloss>
-                        </valItem>
-                        <valItem ident="en">
-                           <gloss>English</gloss>
-                        </valItem>
-                        <valItem ident="es">
-                           <gloss>Spanish</gloss>
-                        </valItem>
-                        <valItem ident="fr">
-                           <gloss>French</gloss>
-                        </valItem>
-                        <valItem ident="it">
-                           <gloss>Italian</gloss>
-                        </valItem>
-                     </valList>
-                  </attDef>
-               </attList>
-            </elementSpec>
-
-            <elementSpec ident="p" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <classes>
-                  <memberOf key="att.id"></memberOf>
-               </classes>
-               <content>
-                  <sequence>
+               <elementSpec ident="b" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <classes>
+                     <memberOf key="model.phrase"/>
+                  </classes>
+                  <content>
                      <alternate minOccurs="0" maxOccurs="unbounded">
                         <textNode/>
                         <classRef key="model.phrase"/>
                      </alternate>
-                     <elementRef key="a" minOccurs="0" maxOccurs="unbounded"/>
-                  </sequence>
-               </content>
+                  </content>
+               </elementSpec>
 
-               <constraintSpec ident="p_punct" scheme="schematron">
-                  <constraint>
-                     <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                     <sch:let name="text" value="normalize-space(.)"/>
-                     <sch:let name="last" value="substring($text, string-length($text))" />
-                     <sch:assert test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                        Paragraphs should not end in "<sch:value-of select="$last"/>" instead of . ! or ?.
-                     </sch:assert>
-                  </constraint>
-               </constraintSpec>
+               <elementSpec ident="br" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <classes>
+                     <memberOf key="model.phrase"/>
+                  </classes>
+                  <content>
+                     <empty/>
+                  </content>
+               </elementSpec>
 
-               <constraintSpec ident="p_ellipsis" scheme="schematron">
-                  <constraint>
-                     <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                     <sch:let name="text" value="normalize-space(text())"/>
+               <elementSpec ident="i" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <classes>
+                     <memberOf key="model.phrase"/>
+                  </classes>
+                  <content>
+                     <alternate minOccurs="0" maxOccurs="unbounded">
+                        <textNode/>
+                        <classRef key="model.phrase"/>
+                     </alternate>
+                  </content>
+               </elementSpec>
 
-                     <sch:assert test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))">
-                        Open bracket [ must have closing braket ]
-                     </sch:assert>
+               <classSpec type="atts" ident="att.id" module="xhtml5">
+                  <desc>Groups elements which may have IDs</desc>
+                  <attList>
+                     <attDef ident="id" usage="opt">
+                        <datatype>
+                           <dataRef name="ID"/>
+                        </datatype>
+                     </attDef>
+                  </attList>
+               </classSpec>
 
-                     <sch:assert test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))">
-                        Close bracket ] does not correspond to open bracket [
-                     </sch:assert>
+               <classSpec type="model" ident="model.phrase" module="xhtml5">
+                  <desc>Groups elements which can appear at the phrase level.</desc>
+               </classSpec>
 
-                     <sch:assert test="not(matches($text, '(\[\s+\.\.\.)|(\.\.\.\s+\])'))">
-                        Spaces are not allowed between brackets and elipsis
-                     </sch:assert>
-
-                     <sch:assert test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))">
-                        Spaces are not allowed inside elipsis
-                     </sch:assert>
-
-                     <sch:assert test="not($text = '[...]')">
-                        Omitted paragraphs are not indicated with <![CDATA[<p>[...]</p>]]>
-                     </sch:assert>
-
-                  </constraint>
-               </constraintSpec>
-
-               <attList>
-                  <attDef ident="class">
-                     <valList type="closed">
-                        <valItem ident="heading"/>
-                        <valItem ident="signature"/>
-                     </valList>
-                  </attDef>
-               </attList>
-            </elementSpec>
-
-            <elementSpec ident="a">
-               <content>
-                  <empty/>
-               </content>
-               <attList>
-                  <attDef ident="href"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="class"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-document"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-paragraph"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-similarity"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-type"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-paper-id"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-               </attList>
-            </elementSpec>
-
-            <elementSpec ident="link">
-               <content>
-                  <empty/>
-               </content>
-               <attList>
-                  <attDef ident="href"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="class"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="rel"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-similarity"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-type"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-                  <attDef ident="data-paper-id"><datatype><dataRef key="teidata.text"/></datatype></attDef>
-               </attList>
-            </elementSpec>
-
-            <elementSpec ident="b" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <classes>
-                  <memberOf key="model.phrase"/>
-               </classes>
-               <content>
-                  <alternate minOccurs="0" maxOccurs="unbounded">
-                     <textNode/>
-                     <classRef key="model.phrase"/>
-                  </alternate>
-               </content>
-            </elementSpec>
-
-            <elementSpec ident="br" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <classes>
-                  <memberOf key="model.phrase"/>
-               </classes>
-               <content>
-                  <empty/>
-               </content>
-            </elementSpec>
-
-            <elementSpec ident="i" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-               <classes>
-                  <memberOf key="model.phrase"/>
-               </classes>
-               <content>
-                  <alternate minOccurs="0" maxOccurs="unbounded">
-                     <textNode/>
-                     <classRef key="model.phrase"/>
-                  </alternate>
-               </content>
-            </elementSpec>
-
-            <classSpec type="atts" ident="att.id" module="xhtml5">
-               <desc>Groups elements which may have IDs</desc>
-               <attList>
-                  <attDef ident="id" usage="opt">
-                     <datatype>
-                        <dataRef name="ID"/>
-                     </datatype>
-                  </attDef>
-               </attList>
-            </classSpec>
-
-            <classSpec type="model" ident="model.phrase" module="xhtml5">
-               <desc>Groups elements which can appear at the phrase level.</desc>
-            </classSpec>
-
-         </schemaSpec>
-      </body>
+            </schemaSpec>
+         </div>
+      </back>
    </text>
 </TEI>

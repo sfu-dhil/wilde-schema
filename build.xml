@@ -60,4 +60,12 @@
         </java>
     </target>
     
+    <target name="makeDocs" depends="install">
+        <java jar="${saxon}" fork="true">
+            <arg line="-xsl:${teixsl.url}/odds/odd2html.xsl"/>
+            <arg line="-s:${schema.dir}/reports.odd"/>
+            <arg line="-o:${schema.dir}/reports.html"/>
+        </java>
+    </target>
+    
 </project>

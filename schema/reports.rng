@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-12T16:37:51Z. .  
+Schema generated from ODD source 2021-07-14T18:02:06Z. .  
 --><!---->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
@@ -54,7 +54,7 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="myTEI-title-title_format-constraint-rule-1">
+                  id="wildeReports-title-title_format-constraint-rule-1">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xh="http://www.w3.org/1999/xhtml"
@@ -65,8 +65,7 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                         value="format-date(//xh:meta[@name='dc.date']/@content, '[FNn], [MNn] [D], [Y0001]')"/>
                <sch:let name="publisher" value="//xh:meta[@name='dc.publisher']/@content"/>
                <sch:let name="expected" value="concat($publisher, ' - ', $date)"/>
-               <sch:assert test="$expected = $title">
-                           Title should be <sch:value-of select="$expected"/>
+               <sch:assert test="$expected = $title"> Title should be <sch:value-of select="$expected"/>
                </sch:assert>
             </sch:rule>
          </pattern>
@@ -83,15 +82,14 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="myTEI-meta-meta_url_constraints-constraint-rule-2">
+                  id="wildeReports-meta-meta_url_constraints-constraint-rule-2">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.source.url' or @name='dc.source.facsimile']">
-               <sch:assert test="matches(@content, '^https?://')">
-                           Must be a proper URL
-                        </sch:assert>
+               <sch:assert test="matches(@content, '^https?://')"> Must be a proper URL
+                           </sch:assert>
             </sch:rule>
          </pattern>
          <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
@@ -101,15 +99,32 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="myTEI-meta-meta_date_constraints-constraint-rule-3">
+                  id="wildeReports-meta-meta_region_constraints-constraint-rule-3">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                      context="xh:meta[@name='dc.region']">
+               <sch:assert test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')">
+                              Region must be one of Algeria, Australia, Austria, Bahamas, Belgium, Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy, Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
+                           </sch:assert>
+            </sch:rule>
+         </pattern>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="wildeReports-meta-meta_date_constraints-constraint-rule-4">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
-               <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')">
-                           Must be YYYY-MM-DD
-                        </sch:assert>
+               <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Must be
+                              YYYY-MM-DD </sch:assert>
             </sch:rule>
          </pattern>
          <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
@@ -119,15 +134,14 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="myTEI-meta-meta_lang_constraints-constraint-rule-4">
+                  id="wildeReports-meta-meta_lang_constraints-constraint-rule-5">
             <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
                       xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.language']">
-               <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')">
-                           Must be one of de, en, es, fr, it.
-                        </sch:assert>
+               <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> Must be one
+                              of de, en, es, fr, it. </sch:assert>
             </sch:rule>
          </pattern>
          <optional>
@@ -140,17 +154,17 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <choice>
                   <value>dc.date</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Date that the report was published</a:documentation>
                   <value>dc.language</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Primary language of the report</a:documentation>
                   <value>dc.publisher</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Name of the newspaper or publisher of the paper</a:documentation>
                   <value>dc.publisher.edition</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Optional. If the report appeared in a special edition include it here.</a:documentation>
                   <value>dc.region</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">The name of the region where the report was published</a:documentation>
                   <value>dc.region.city</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">The name of the city where the report was published</a:documentation>
                   <value>dc.source</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>dc.source.database</value>
@@ -208,14 +222,14 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="myTEI-body-div_id-constraint-assert-5">
+                  id="wildeReports-body-div_id-constraint-assert-6">
             <rule context="xh:body">
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="xh:div[@id='original']">
-                           One div with id='original' is required.
+                           One div with id='original' is required. 
                         </sch:assert>
             </rule>
          </pattern>
@@ -277,7 +291,7 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="myTEI-p-p_punct-constraint-assert-6">
+                  id="wildeReports-p-p_punct-constraint-assert-7">
             <rule context="xh:p">
                <sch:let xmlns="http://www.tei-c.org/ns/1.0"
                         xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -296,8 +310,8 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                        Paragraphs should not end in "<sch:value-of select="$last"/>" instead of . ! or ?.
-                     </sch:assert>
+                           Paragraphs should not end in "<sch:value-of select="$last"/>" instead of
+                           . ! or ?. </sch:assert>
             </rule>
          </pattern>
          <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
@@ -307,49 +321,45 @@ Schema generated from ODD source 2021-07-12T16:37:51Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="myTEI-p-p_ellipsis-constraint-assert-7">
+                  id="wildeReports-p-p_ellipsis-constraint-assert-8">
             <rule context="xh:p">
                <sch:let xmlns="http://www.tei-c.org/ns/1.0"
                         xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                         xmlns:xh="http://www.w3.org/1999/xhtml"
                         xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                         name="text"
-                        value="normalize-space(text())"/>
+                        value="normalize-space(string())"/>
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))">
-                        Open bracket [ must have closing braket ]
-                     </sch:assert>
+                           test="not(matches($text, '\[\s*\.\.\.\s*[^\]]'))"> Open bracket
+                           [ must have closing braket ] </sch:assert>
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))">
-                        Close bracket ] does not correspond to open bracket [
-                     </sch:assert>
+                           test="not(matches($text, '[^\[]\s*\.\.\.\s*\]'))"> Close bracket
+                           ] does not correspond to open bracket [ </sch:assert>
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="not(matches($text, '(\[\s+\.\.\.)|(\.\.\.\s+\])'))">
-                        Spaces are not allowed between brackets and elipsis
-                     </sch:assert>
+                           Spaces are not allowed between brackets and elipsis </sch:assert>
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))">
-                        Spaces are not allowed inside elipsis
-                     </sch:assert>
+                           test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))"> Spaces
+                           are not allowed inside elipsis </sch:assert>
                <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="not($text = '[...]')">
-                        Omitted paragraphs are not indicated with &lt;p&gt;[...]&lt;/p&gt;
-                     </sch:assert>
+                           test="not($text = '[...]')"> Omitted/unrelated paragraphs should
+                           not be indicated with &lt;p&gt;[...]&lt;/p&gt;
+                        </sch:assert>
             </rule>
          </pattern>
          <ref name="att.id.attributes"/>
