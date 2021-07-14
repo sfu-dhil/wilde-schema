@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-14T18:02:06Z. .  
+Schema generated from ODD source 2021-07-14T21:24:22Z. .  
 --><!---->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
@@ -105,8 +105,10 @@ Schema generated from ODD source 2021-07-14T18:02:06Z. .
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.region']">
-               <sch:assert test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')">
-                              Region must be one of Algeria, Australia, Austria, Bahamas, Belgium, Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy, Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
+               <sch:assert test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"> Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
+                              Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy,
+                              Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto
+                              Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
                            </sch:assert>
             </sch:rule>
          </pattern>
@@ -176,25 +178,25 @@ Schema generated from ODD source 2021-07-14T18:02:06Z. .
                   <value>dc.source.url</value>
                   <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                   <value>dc.publisher.id</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>dc.publisher.sortable</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>dc.date.updated</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>wr.sortable</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>wr.translated</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>wd.translated</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>wr.word-count</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>wr.wordcount</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>index.document</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                   <value>index.paragraph</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Automatically generated. Do not add or edit.</a:documentation>
                </choice>
             </attribute>
          </optional>
@@ -228,9 +230,8 @@ Schema generated from ODD source 2021-07-14T18:02:06Z. .
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="xh:div[@id='original']">
-                           One div with id='original' is required. 
-                        </sch:assert>
+                           test="xh:div[@id='original']"> One div with id='original' is
+                           required. </sch:assert>
             </rule>
          </pattern>
       </element>
@@ -379,7 +380,7 @@ Schema generated from ODD source 2021-07-14T18:02:06Z. .
    </define>
    <define name="a">
       <element name="a">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Added automatically by the processing tools. Do not add or edit.</a:documentation>
          <empty/>
          <optional>
             <attribute name="href">
@@ -421,7 +422,7 @@ Schema generated from ODD source 2021-07-14T18:02:06Z. .
    </define>
    <define name="link">
       <element name="link">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Added automatically by the processing tools. Do not add or edit.</a:documentation>
          <empty/>
          <optional>
             <attribute name="href">

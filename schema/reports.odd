@@ -21,75 +21,21 @@
       </fileDesc>
    </teiHeader>
    <text>
-      <body>
-         <head>
-            <title level="m">Wilde Trials News Archive</title>
-         </head>
-         <head>Manual for authors, editors, and coders</head>
-         <p>Michael Joyce</p>
-
-         <div xml:id="requirements">
-            <head>Requirements</head>
-            <p>To <emph>edit</emph> reports for the site, you will need a computer with the
-               following software:</p>
-            <list>
-               <item> The <ref target="https://desktop.github.com/">GitHub Desktop</ref> client to
-                  check out the reports, commit changes to them, and send your commits back to
-                  GitHub </item>
-               <item>The <ref target="https://www.oxygenxml.com/download.html">Oxygen XML
-                     Editor</ref>. It it technically possible to edit the materials in any text
-                  editor, but the code will not be checked or constrained, and you will not have a
-                  lot of the editing help provided by the Oxygen editor, so the results will most
-                  likely be invalid and may break the website.</item>
-            </list>
-            <p>You must also sign up for a <ref target="https://github.com/join">GitHub</ref>
-               account. Once you have signed up for an account, we can grant access.</p>
-         </div>
-
-         <div xml:id="organization">
-            <head>Project Organization</head>
-            <p>Reports are organized in to folders by region (ex. Algeria, Britain) and then by
-               newspaper title (eg. Britain/Bristol Mercury). In the newspaper folder each file is
-               named as follows: <eg>NEWSPAPER TITLE - Date.xml</eg>. If there are multiple reports
-               on a single day, append .a, .b., .c, etc. to the date like so: <eg>NEWSPAPER TITLE -
-                  Date.a.xml</eg></p>
-
-            <p>There are additional restrictions on file and folder names:</p>
-            <list>
-               <item>Region names and newspaper titles must be capitalized.</item>
-               <item>Accented characters are forbidden in file and folder names. Replace all
-                  accented characters in file and folder names with underscores (_).</item>
-               <item>File and folder names must not start or end with a space character.</item>
-            </list>
-         </div>
-
-         <div xml:id="github">
-            <head>Using the GitHub Repository</head>
-         </div>
-
-         <div xml:id="report">
-            <head>Creating and Editing Reports</head>
-         </div>
-
-         <div xml:id="guidelines">
-            <head>Guidelines for Tagging Reports</head>
-         </div>
-
-         <div xml:id="faq">
-            <head>Frequently Asked Questions</head>
-         </div>
-
-         <div xml:id="oxygen">
-            <head>Navigating and Using Oxygen</head>
-         </div>
-
-         <div xml:id="odd">
-            <head>Generating the Schema and Documentation</head>
-         </div>
-
-      </body>
-      <back>
+      <front>
          <div>
+            <head>
+               <title>Wilde Trials News Archive</title>
+            </head>
+         </div>
+      </front>
+      <body>
+         <div>
+            <divGen xml:id="index"/>
+         </div>
+      </body>
+      <back>         
+         <div>
+            <head>Appendix</head>
             <schemaSpec ident="wildeReports" start="html" ns="http://www.w3.org/1999/xhtml">
 
                <moduleSpec ident="xhtml5">
@@ -161,8 +107,8 @@
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.region']">
                            <sch:assert
-                              test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')">
-                              Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
+                              test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"
+                              > Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
                               Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy,
                               Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto
                               Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
