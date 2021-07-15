@@ -26,6 +26,17 @@
             <head>
                <title>Wilde Trials News Archive</title>
             </head>
+            <p>This document serves as the technical documentation for the <title>Wilde Trials News
+                  Archive</title>. At the moment (mid 2021) it is mostly a collection of notes to
+               help with transcribing the reports and documenting the project workflow.</p>
+            <p>If you find an error in this document or have suggestions for improvement, please
+               create a <ref target="https;//github.com/sfu-dhil/wilde-schema/issues">GitHub
+                  Issue</ref>. All suggestions are welcome.</p>
+            <p>The included schema was inspired by <ref
+                  target="https://journals.openedition.org/jtei/3106">Using ODD for HTML</ref> by
+               Martin Holmes. This documentation and publishing set up borrows heavily from the <ref
+                  target="https://sfu-dhil.github.io/lim-schema/index.html">Lyon in Mourning</ref>
+               schema and documentation written by Joey Takeda.</p>
          </div>
       </front>
       <body>
@@ -125,8 +136,8 @@
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
-                           <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must be formatted as
-														 YYYY-MM-DD </sch:assert>
+                           <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must
+                              be formatted as YYYY-MM-DD </sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec>
@@ -135,8 +146,9 @@
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.language']">
-                           <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content attribute for dc.language must
-														  be one de, en, es, fr, it. </sch:assert>
+                           <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content
+                              attribute for dc.language must be one de, en, es, fr, it.
+                           </sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec>
@@ -230,7 +242,8 @@
                </elementSpec>
 
                <elementSpec ident="div" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-                  <desc>Container for one report or one translation. May only contain paragraph tags.</desc>
+                  <desc>Container for one report or one translation. May only contain paragraph
+                     tags.</desc>
                   <classes>
                      <memberOf key="att.id"/>
                   </classes>
@@ -240,10 +253,11 @@
                   <constraintSpec ident="div_lang" scheme="schematron">
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                        <sch:let name="metalang" value="//xh:meta[@name='dc.language']/@content/string()"/>                        
-                        <sch:let name="divlang" value="//xh:div[@id='original']/@lang/string()"/>                        
-                        <sch:assert test="$metalang = $divlang">The language on the original 
-                           div (<sch:value-of select="$divlang"/>) must match the language in the 
+                        <sch:let name="metalang"
+                           value="//xh:meta[@name='dc.language']/@content/string()"/>
+                        <sch:let name="divlang" value="//xh:div[@id='original']/@lang/string()"/>
+                        <sch:assert test="$metalang = $divlang">The language on the original div
+                              (<sch:value-of select="$divlang"/>) must match the language in the
                            metadata (<sch:value-of select="$metalang"/>).</sch:assert>
                      </constraint>
                   </constraintSpec>
@@ -281,7 +295,7 @@
                </elementSpec>
 
                <elementSpec ident="p" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-                  <desc>General container tag for paragraphs, headings, and signatures.</desc>                  
+                  <desc>General container tag for paragraphs, headings, and signatures.</desc>
                   <classes>
                      <memberOf key="att.id"/>
                   </classes>
@@ -420,7 +434,8 @@
                </elementSpec>
 
                <elementSpec ident="br" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
-                  <desc>A significant line break in the report, different from text wrapped at the end of a column.</desc>
+                  <desc>A significant line break in the report, different from text wrapped at the
+                     end of a column.</desc>
                   <classes>
                      <memberOf key="model.phrase"/>
                   </classes>

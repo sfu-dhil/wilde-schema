@@ -71,6 +71,20 @@ The cleanup script has removed the all the unnecessary, redundant, and generated
 
 And the attributes on `meta` tags have been reorded. The name attribute is first to aid readability, and the meta tags have been sorted by the name attribute.
 
+## Preview
+
+Finding errors in raw XML can be difficult. For that reason we have added a preview in oXygen.
+
+The default action in oXygen is to clean up the current report. For the preview to work you must switch to the preview action.
+
+Click the wrench icon in the toolbar. Uncheck `Clean Report` and check `Preview Report`.
+
+![Configure Preview](images/oxygen_configure_transformation.png)
+
+Now when you use the keyboard shortcut CMD+Shift+T (CMD = ⌘ on Mac) or click the red play icon in the toolbar, oXygen will generate a preview file and open it in the web browser of your choice. The display will mimic the display on the live site, including the metadata. You can proof the report and make any corrections in oXygen.
+
+![Preview](images/preview.png)
+
 ## Committing Changes
 
 After you've made a set of changes (i.e. before you take a break or before the end of your work day) and confirmed that they were valid, you need to commit those changes to the repository. To do that, navigate to GitHub Desktop, which should show you a list of changes that you've made:

@@ -22,6 +22,15 @@
             <head>
                <title>Wilde Trials News Archive</title>
             </head>
+            <p>This document serves as the technical documentation for the <title>Wilde Trials News
+                  Archive</title>. At the moment (mid 2021) it is mostly a collection of notes to
+               help with transcribing the reports and documenting the project workflow.</p>
+            <p>If you find an error in this document or have suggestions for improvement, please
+               create a <ref target="https;//github.com/sfu-dhil/wilde-schema/issues">GitHub
+                  Issue</ref>. All suggestions are welcome.</p>
+            <p>The included schema was inspired by <ref target="https://journals.openedition.org/jtei/3106">Using ODD for HTML</ref> by
+               Martin Holmes. This documentation and publishing set up borrows heavily from the <ref target="https://sfu-dhil.github.io/lim-schema/index.html">Lyon in Mourning</ref>
+               schema and documentation written by Joey Takeda.</p>
          </div>
       </front>
       <body>
@@ -79,16 +88,17 @@
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
-                           <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must be formatted as
-														 YYYY-MM-DD </sch:assert>
+                           <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must
+                              be formatted as YYYY-MM-DD </sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec><constraintSpec ident="meta_lang_constraints" scheme="schematron">
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.language']">
-                           <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content attribute for dc.language must
-														  be one de, en, es, fr, it. </sch:assert>
+                           <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content
+                              attribute for dc.language must be one de, en, es, fr, it.
+                           </sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec><attList><attDef ident="content">
@@ -165,17 +175,18 @@
                         <sch:assert test="xh:div[@id='original']"> One div with id='original' is
                            required. </sch:assert>
                      </constraint>
-                  </constraintSpec></elementSpec><elementSpec rend="add" ident="div" ns="http://www.w3.org/1999/xhtml" module="xhtml5"><desc>Container for one report or one translation. May only contain paragraph tags.</desc><classes>
+                  </constraintSpec></elementSpec><elementSpec rend="add" ident="div" ns="http://www.w3.org/1999/xhtml" module="xhtml5"><desc>Container for one report or one translation. May only contain paragraph
+                     tags.</desc><classes>
                      <memberOf key="att.id"/>
                   </classes><content>
                      <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
                   </content><constraintSpec ident="div_lang" scheme="schematron">
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                        <sch:let name="metalang" value="//xh:meta[@name='dc.language']/@content/string()"/>                        
-                        <sch:let name="divlang" value="//xh:div[@id='original']/@lang/string()"/>                        
-                        <sch:assert test="$metalang = $divlang">The language on the original 
-                           div (<sch:value-of select="$divlang"/>) must match the language in the 
+                        <sch:let name="metalang" value="//xh:meta[@name='dc.language']/@content/string()"/>
+                        <sch:let name="divlang" value="//xh:div[@id='original']/@lang/string()"/>
+                        <sch:assert test="$metalang = $divlang">The language on the original div
+                              (<sch:value-of select="$divlang"/>) must match the language in the
                            metadata (<sch:value-of select="$metalang"/>).</sch:assert>
                      </constraint>
                   </constraintSpec><attList><attDef ident="id" mode="replace" usage="req">
@@ -209,16 +220,7 @@
                      <memberOf key="att.id"/>
                   </classes><content>
                      <sequence minOccurs="1" maxOccurs="1"><alternate minOccurs="0" maxOccurs="unbounded"><textNode/><classRef key="model.phrase"/></alternate><elementRef key="a" minOccurs="0" maxOccurs="unbounded"/></sequence>
-                  </content><constraintSpec ident="p_punct" scheme="schematron">
-                     <constraint>
-                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                        <sch:let name="text" value="normalize-space(.)"/>
-                        <sch:let name="last" value="substring($text, string-length($text))"/>
-                        <sch:assert test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                           Paragraphs should not end in "<sch:value-of select="$last"/>" instead of
-                           . ! or ?. </sch:assert>
-                     </constraint>
-                  </constraintSpec><constraintSpec ident="p_ellipsis" scheme="schematron">
+                  </content><constraintSpec ident="p_ellipsis" scheme="schematron">
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:let name="text" value="normalize-space(string())"/>
@@ -299,7 +301,8 @@
                      <memberOf key="model.phrase"/>
                   </classes><content>
                      <alternate minOccurs="0" maxOccurs="unbounded"><textNode/><classRef key="model.phrase"/></alternate>
-                  </content></elementSpec><elementSpec rend="add" ident="br" ns="http://www.w3.org/1999/xhtml" module="xhtml5"><desc>A significant line break in the report, different from text wrapped at the end of a column.</desc><classes>
+                  </content></elementSpec><elementSpec rend="add" ident="br" ns="http://www.w3.org/1999/xhtml" module="xhtml5"><desc>A significant line break in the report, different from text wrapped at the
+                     end of a column.</desc><classes>
                      <memberOf key="model.phrase"/>
                   </classes><content>
                      <empty/>

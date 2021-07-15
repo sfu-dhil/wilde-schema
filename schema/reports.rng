@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-15T19:05:57Z. .
+Schema generated from ODD source 2021-07-15T21:36:31Z. .
 TEI Edition: Version 4.2.2. Last updated on
 	9th April 2021, revision 609a109b1
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
@@ -129,8 +129,8 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
-               <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must be formatted as
-														 YYYY-MM-DD </sch:assert>
+               <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must
+                              be formatted as YYYY-MM-DD </sch:assert>
             </sch:rule>
          </pattern>
          <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
@@ -146,8 +146,9 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.language']">
-               <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content attribute for dc.language must
-														  be one de, en, es, fr, it. </sch:assert>
+               <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content
+                              attribute for dc.language must be one de, en, es, fr, it.
+                           </sch:assert>
             </sch:rule>
          </pattern>
          <optional>
@@ -271,8 +272,8 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
                            xmlns:sch="http://purl.oclc.org/dsdl/schematron"
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="$metalang = $divlang">The language on the original 
-                           div (<sch:value-of select="$divlang"/>) must match the language in the 
+                           test="$metalang = $divlang">The language on the original div
+                              (<sch:value-of select="$divlang"/>) must match the language in the
                            metadata (<sch:value-of select="$metalang"/>).</sch:assert>
             </rule>
          </pattern>
@@ -326,37 +327,7 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="wildeReports-p-p_punct-constraint-assert-8">
-            <rule context="xh:p">
-               <sch:let xmlns="http://www.tei-c.org/ns/1.0"
-                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                        xmlns:xh="http://www.w3.org/1999/xhtml"
-                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                        name="text"
-                        value="normalize-space(.)"/>
-               <sch:let xmlns="http://www.tei-c.org/ns/1.0"
-                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                        xmlns:xh="http://www.w3.org/1999/xhtml"
-                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                        name="last"
-                        value="substring($text, string-length($text))"/>
-               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
-                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                           xmlns:xh="http://www.w3.org/1999/xhtml"
-                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                           test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                           Paragraphs should not end in "<sch:value-of select="$last"/>" instead of
-                           . ! or ?. </sch:assert>
-            </rule>
-         </pattern>
-         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
-                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
-                 xmlns:xh="http://www.w3.org/1999/xhtml"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 uri="http://www.w3.org/1999/xhtml"
-                 prefix="xh"/>
-         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="wildeReports-p-p_ellipsis-constraint-assert-9">
+                  id="wildeReports-p-p_ellipsis-constraint-assert-8">
             <rule context="xh:p">
                <sch:let xmlns="http://www.tei-c.org/ns/1.0"
                         xmlns:sch="http://purl.oclc.org/dsdl/schematron"
