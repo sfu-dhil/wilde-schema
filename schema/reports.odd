@@ -295,17 +295,6 @@
                      </sequence>
                   </content>
 
-                  <constraintSpec ident="p_punct" scheme="schematron">
-                     <constraint>
-                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
-                        <sch:let name="text" value="normalize-space(.)"/>
-                        <sch:let name="last" value="substring($text, string-length($text))"/>
-                        <sch:assert test="@class or matches($last, '^[.!?]$') or ($text = '[...]')">
-                           Paragraphs should not end in "<sch:value-of select="$last"/>" instead of
-                           . ! or ?. </sch:assert>
-                     </constraint>
-                  </constraintSpec>
-
                   <constraintSpec ident="p_ellipsis" scheme="schematron">
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
