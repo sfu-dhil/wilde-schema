@@ -5,7 +5,11 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-15T00:04:46Z. .  
+Schema generated from ODD source 2021-07-15T19:05:57Z. .
+TEI Edition: Version 4.2.2. Last updated on
+	9th April 2021, revision 609a109b1
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
+  
 --><!---->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
@@ -303,7 +307,7 @@ Schema generated from ODD source 2021-07-15T00:04:46Z. .
    </define>
    <define name="p">
       <element name="p" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">General container tag for paragraphs, headings, and signatures.</a:documentation>
          <group>
             <zeroOrMore>
                <choice>
@@ -489,7 +493,7 @@ Schema generated from ODD source 2021-07-15T00:04:46Z. .
    </define>
    <define name="b">
       <element name="b" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates text that was printed in boldface in the original.</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>
@@ -500,13 +504,13 @@ Schema generated from ODD source 2021-07-15T00:04:46Z. .
    </define>
    <define name="br">
       <element name="br" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">A significant line break in the report, different from text wrapped at the end of a column.</a:documentation>
          <rng:empty xmlns:rng="http://relaxng.org/ns/structure/1.0"/>
       </element>
    </define>
    <define name="i">
       <element name="i" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Indicates text that was printed in italics in the original.</a:documentation>
          <zeroOrMore>
             <choice>
                <text/>

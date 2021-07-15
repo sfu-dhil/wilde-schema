@@ -1,13 +1,13 @@
 <project basedir="." default="all">
-
+    
     <dirname property="projectDir" file="../../lim-schema.xpr"/>
-
-
+    
+    
     <property name="echo.separator">**************</property>
-
+    
     <!--ODD 2 Lite XSLT-->
     <!--ODD 2 ODD XSLT (from the TEI framework)-->
-
+    
     <property name="odd2odd" value="${TEIStylesheets}/odds/odd2odd.xsl"/>
     <property name="odd2Lite" value="${TEIStylesheets}/odds/odd2lite.xsl"/>
     
@@ -15,16 +15,16 @@
     <property name="schemaDir" value="${projectDir}/schema"/>
     
     
-    <property name="odd.src" value="${schemaDir}/lim.odd"/>
+    <property name="odd.src" value="${schemaDir}/${schema}.odd"/>
     <basename property="odd.basename" file="${odd.src}"/>
     <property name="odd.expanded" value="${tmpDir}/${odd.basename}_expanded.odd"/>
     <property name="odd.processed" value="${tmpDir}/${odd.basename}_processed.odd"/>
     <property name="odd.lite" value="${tmpDir}/${odd.basename}_lite.xml"/>
     <property name="odd.fixed" value="${tmpDir}/${odd.basename}.xml"/>
     <property name="out" value="${projectDir}/public"/>
-
-
-
+    
+    
+    
     <target name="init">
         <echo message="${echo.separator}"/>
         <echo message="Initiating documentation build..."/>
@@ -32,7 +32,7 @@
         <delete dir="${out}"/>
         <mkdir dir="${out}"/>
     </target>
-
+    
     <target name="copyAssets">
         <echo message="${echo.separator}"/>
         <echo message="Copying site assets..."/>
@@ -93,8 +93,8 @@
             <arg line="defaultTEIVersion=current"/>
         </java>
     </target>
-
-
+    
+    
     <target name="odd2lite">
         <echo message="${echo.separator}"/>
         <echo message="Converting ODD to Lite"/>
@@ -105,7 +105,7 @@
             <arg line="-xsl:${odd2Lite}"/>
         </java>
     </target>
-
+    
     <target name="fixLite">
         <echo message="${echo.separator}"/>
         <echo message="Fixing Lite..."/>
@@ -116,7 +116,7 @@
             <arg line="-xsl:${basedir}/xsl/fix_lite.xsl"/>
         </java>
     </target>
-
+    
     <target name="odd2Html">
         <echo message="${echo.separator}"/>
         <echo message="Create site..."/>
@@ -128,8 +128,8 @@
             <arg value="-TP:profile.html"/>
         </java>
     </target>
-
-
+    
+    
     <target name="all" depends="init, copyAssets, md2tei, odd2ExpandedOdd, odd2processedOdd, odd2lite, fixLite, odd2Html"/>
-
+    
 </project>

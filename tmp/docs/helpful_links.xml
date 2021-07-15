@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader>
+  <fileDesc>
+    <titleStmt>
+      <title></title>
+    </titleStmt>
+    <publicationStmt>
+    </publicationStmt>
+    <sourceDesc>
+      <p>Produced by pandoc.</p>
+    </sourceDesc>
+  </fileDesc>
+</teiHeader>
+<text>
+<body>
+<div type="level1" xml:id="helpful-links">
+  <head>Helpful Links</head>
+  <list type="unordered">
+    <item>
+      <p><ref target="https://github.com/join">Join GitHub</ref></p>
+    </item>
+    <item>
+      <p><ref target="https://desktop.github.com/">GitHub Desktop
+      Application</ref></p>
+    </item>
+    <item>
+      <p><ref target="https://docs.github.com/en/desktop">GitHub Desktop
+      Documentation</ref></p>
+    </item>
+    <item>
+      <p><ref target="https://github.com/sfu-dhil/wilde-reports">Wilde
+      Reports Repository (private)</ref></p>
+    </item>
+    <item>
+      <p><ref target="https://github.com/sfu-dhil">SFU DHIL @
+      GitHub</ref></p>
+    </item>
+    <item>
+      <p><ref target="https://html.com/">HTML Tutorial</ref> But also
+      note that we use a very limited subset of HTML tags and
+      attributes.</p>
+    </item>
+    <item>
+      <p><ref target="https://www.oxygenxml.com/xml_editor/download_oxygenxml_editor.html">oXygenXML
+      Editor</ref> Members of the Wilde Trials team should contact the
+      DHIL for a license key.</p>
+    </item>
+  </list>
+</div>
+</body>
+</text>
+</TEI>

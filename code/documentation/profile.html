@@ -1,0 +1,294 @@
+<!DOCTYPE HTML><html xmlns:f="http://saxonica.com/ns/profile-functions">
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <title>Analysis of Stylesheet + Execution Time</title>
+      <style>
+        
+        
+        body {
+        background: #e4eef0;
+        }
+        
+        h1 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 14pt;
+        font-style: normal;
+        color: #3D5B96;
+        font-weight: bold;
+        }
+        
+        h2 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 12pt;
+        font-style: normal;
+        color: #96433D;
+        font-weight: bold;
+        }		
+        
+        p {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        font-style: normal;
+        color: #3D5B96;
+        font-weight: normal;
+        line-height: 1.3em;
+        padding-right:15px;
+        }
+        
+        table {
+        border-collapse: collapse;
+        border: 1px solid black;
+        }
+        
+        th, td {
+        border: 1px solid black;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 9pt;
+        font-style: normal;
+        color: #3D5B96;
+        text-decoration: none;
+        line-height: 1.3em;
+        padding-left: 15px;
+        text-indent: -15px;
+        padding-right: 15px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        }
+        
+        th {
+        background: #B1CCC7;
+        font-weight: bold;
+        }
+        
+        td {
+        font-weight: normal;
+        }
+        
+    </style>
+   </head>
+   <body>
+      <h1>Analysis of Stylesheet Execution Time</h1>
+      <p>Total time: 528.361 milliseconds</p>
+      <h2>Time spent in each template,  function or global variable:</h2>
+      <p>The table below is ordered by the total net time spent in the template,  
+         function or global variable. Gross time means the time including called
+         templates and  functions (recursive calls only count from the original entry);
+         net time means time excluding time spent in called templates and  functions.</p>
+      <table>
+         <thead>
+            <tr>
+               <th>module</th>
+               <th>line</th>
+               <th>instruction</th>
+               <th>count</th>
+               <th>average time (gross/ms)</th>
+               <th>total time (gross/ms)</th>
+               <th>average time (net/ms)</th>
+               <th>total time (net/ms)</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">114</td>
+               <td>xsl:template createDoc</td>
+               <td align="right">19</td>
+               <td align="right">19.069</td>
+               <td align="right">362.308</td>
+               <td align="right">16.336</td>
+               <td align="right">310.375</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">67</td>
+               <td>xsl:variable facsArray</td>
+               <td align="right">1</td>
+               <td align="right">43.552</td>
+               <td align="right">43.552</td>
+               <td align="right">43.550</td>
+               <td align="right">43.550</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">125</td>
+               <td>xsl:template createClass</td>
+               <td align="right">475</td>
+               <td align="right">0.058</td>
+               <td align="right">27.389</td>
+               <td align="right">0.058</td>
+               <td align="right">27.389</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">565</td>
+               <td>xsl:function jt:getId</td>
+               <td align="right">347</td>
+               <td align="right">0.052</td>
+               <td align="right">18.029</td>
+               <td align="right">0.052</td>
+               <td align="right">18.029</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">85</td>
+               <td>xsl:variable toc</td>
+               <td align="right">1</td>
+               <td align="right">21.411</td>
+               <td align="right">21.411</td>
+               <td align="right">12.238</td>
+               <td align="right">12.238</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">69</td>
+               <td>xsl:variable idMap</td>
+               <td align="right">1</td>
+               <td align="right">11.918</td>
+               <td align="right">11.918</td>
+               <td align="right">10.691</td>
+               <td align="right">10.691</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">542</td>
+               <td>xsl:function jt:resolveRef</td>
+               <td align="right">62</td>
+               <td align="right">0.165</td>
+               <td align="right">10.255</td>
+               <td align="right">0.165</td>
+               <td align="right">10.255</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">61</td>
+               <td>xsl:variable template</td>
+               <td align="right">1</td>
+               <td align="right">6.235</td>
+               <td align="right">6.235</td>
+               <td align="right">6.235</td>
+               <td align="right">6.235</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/egXML.xsl">egXML.xsl</a></td>
+               <td align="right">257</td>
+               <td>xsl:function jt:countLeadingSpace</td>
+               <td align="right">27</td>
+               <td align="right">0.197</td>
+               <td align="right">5.311</td>
+               <td align="right">0.197</td>
+               <td align="right">5.311</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">65</td>
+               <td>xsl:variable appendixItems</td>
+               <td align="right">1</td>
+               <td align="right">5.691</td>
+               <td align="right">5.691</td>
+               <td align="right">4.744</td>
+               <td align="right">4.744</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/egXML.xsl">egXML.xsl</a></td>
+               <td align="right">222</td>
+               <td>xsl:function jt:returnInitialSpace</td>
+               <td align="right">1</td>
+               <td align="right">5.641</td>
+               <td align="right">5.641</td>
+               <td align="right">3.207</td>
+               <td align="right">3.207</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/egXML.xsl">egXML.xsl</a></td>
+               <td align="right">185</td>
+               <td>xsl:function jt:getSpacesToInsert</td>
+               <td align="right">26</td>
+               <td align="right">0.158</td>
+               <td align="right">4.108</td>
+               <td align="right">0.047</td>
+               <td align="right">1.231</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">66</td>
+               <td>xsl:variable tocIds</td>
+               <td align="right">1</td>
+               <td align="right">4.176</td>
+               <td align="right">4.176</td>
+               <td align="right">0.990</td>
+               <td align="right">0.990</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">63</td>
+               <td>xsl:variable text</td>
+               <td align="right">1</td>
+               <td align="right">0.947</td>
+               <td align="right">0.947</td>
+               <td align="right">0.947</td>
+               <td align="right">0.947</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">64</td>
+               <td>xsl:variable chapters</td>
+               <td align="right">1</td>
+               <td align="right">0.711</td>
+               <td align="right">0.711</td>
+               <td align="right">0.711</td>
+               <td align="right">0.711</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/egXML.xsl">egXML.xsl</a></td>
+               <td align="right">281</td>
+               <td>xsl:function jt:isSelfClosed</td>
+               <td align="right">17</td>
+               <td align="right">0.030</td>
+               <td align="right">0.516</td>
+               <td align="right">0.030</td>
+               <td align="right">0.516</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">83</td>
+               <td>xsl:variable rndMap</td>
+               <td align="right">1</td>
+               <td align="right">0.443</td>
+               <td align="right">0.443</td>
+               <td align="right">0.418</td>
+               <td align="right">0.418</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">62</td>
+               <td>xsl:variable sourceDoc</td>
+               <td align="right">1</td>
+               <td align="right">0.025</td>
+               <td align="right">0.025</td>
+               <td align="right">0.025</td>
+               <td align="right">0.025</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">40</td>
+               <td>xsl:param templateURI</td>
+               <td align="right">1</td>
+               <td align="right">0.013</td>
+               <td align="right">0.013</td>
+               <td align="right">0.013</td>
+               <td align="right">0.013</td>
+            </tr>
+            <tr>
+               <td><a href="file:/Users/michael/Documents/wilde-schema/code/documentation/xsl/html.xsl">html.xsl</a></td>
+               <td align="right">41</td>
+               <td>xsl:param facsJsonURI</td>
+               <td align="right">1</td>
+               <td align="right">0.003</td>
+               <td align="right">0.003</td>
+               <td align="right">0.003</td>
+               <td align="right">0.003</td>
+            </tr>
+         </tbody>
+      </table>
+   </body>
+</html>

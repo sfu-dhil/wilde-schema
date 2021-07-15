@@ -1,88 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project basedir="." default="all" name="buildLIM">
-    <description>
-        Build file for creating the schema and documentation from the LiM ODD files.
-        
-        All submodules must be fetched beforehand.
-    </description>
-    
+    <description> Build file for creating the schema and documentation from the LiM ODD files. All
+        submodules must be fetched beforehand. </description>
+
+    <property name="schema" value="reports"/>
+
+    <property name="jing" value="${basedir}/lib/jing.jar"/>
+    <property name="saxon" value="${basedir}/lib/saxon10HE.jar"/>
+    <property name="xsl-schematron" value="${basedir}/lib/xsl-schematron"/>
+
     <property name="lib.dir" value="${basedir}/lib"/>
+    <property name="dataDir" value="${basedir}/data"/>
     <property name="schemaDir" value="${basedir}/schema"/>
-    <property name="TEIStylesheets" value="https://raw.githubusercontent.com/TEIC/Stylesheets/released"/>
+    <property name="TEIStylesheets"
+        value="https://raw.githubusercontent.com/TEIC/Stylesheets/released"/>
     <property name="saxon" value="${lib.dir}/saxon10HE.jar"/>
-    
-    <target name="install">
-        <description>target: install
-        
-        Target to fetch all of the jar files necessary for building things;
-        this includes saxon, jing, and the xsl-schematron implementation. We just
-        fetch all of those using the xml-validate-action.
-        </description>
-        <ant antfile="${basedir}/xml-validate-action/build.xml"
-            dir="${basedir}"
-            target="install">
-            <property name="saxon" value="${saxon}"/>
-        </ant>
+
+    <condition property="jingAvailable">
+        <available type="file" file="${jing}"/>
+    </condition>
+    <condition property="saxonAvailable">
+        <available type="file" file="${saxon}"/>
+    </condition>
+    <condition property="xslSchematronAvailable">
+        <available type="dir" file="${xsl-schematron}"/>
+    </condition>
+    <condition property="allAvailable">
+        <and>
+            <istrue value="${jingAvailable}"/>
+            <istrue value="${xslSchematronAvailable}"/>
+            <istrue value="${saxonAvailable}"/>
+        </and>
+    </condition>
+
+    <target name="makeDir">
+        <dirname file="${file}" property="file.dir"/>
+        <mkdir dir="${file.dir}"/>
     </target>
-    
-    <target name="makeRng" depends="install">
-        <description>
-            target: makeRng
-            
-            Creates the schema using the TEI Stylesheets repository
-            (first expanding, and then convert to RelaxNG)
-        </description>
+
+    <target name="getJing" unless="${jingAvailable}">
+        <antcall target="makeDir">
+            <param name="file" value="${jing}"/>
+        </antcall>
+        <get src="https://repo1.maven.org/maven2/com/thaiopensource/jing/20091111/jing-20091111.jar"
+            dest="${jing}"/>
+    </target>
+
+    <target name="getSaxon" unless="${saxonAvailable}">
+        <antcall target="makeDir">
+            <param name="file" value="${saxon}"/>
+        </antcall>
+        <get src="https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.3/Saxon-HE-10.3.jar"
+            dest="${saxon}"/>
+    </target>
+
+    <target name="getXslSchematron" unless="${xslSchematronAvailable}">
+        <antcall target="makeDir">
+            <param name="file" value="${xsl-schematron}.zip"/>
+        </antcall>
+        <get src="https://github.com/joeytakeda/xsl-schematron/archive/refs/tags/0.9.0.zip"
+            dest="${xsl-schematron}.zip"/>
+        <unzip src="${xsl-schematron}.zip" dest="${xsl-schematron}">
+            <cutdirsmapper dirs="1"/>
+        </unzip>
+    </target>
+
+    <target name="install" unless="${allAvailable}" depends="getJing, getSaxon, getXslSchematron"> </target>
+
+    <target name="schema" depends="install">
         <echo>Expanding ODD...</echo>
         <java jar="${saxon}" fork="true">
             <arg line="-xsl:${TEIStylesheets}/odds/odd2odd.xsl"/>
-            <arg line="-s:${schemaDir}/lim.odd"/>
-            <arg line="-o:${schemaDir}/lim.expanded.odd"/>
+            <arg line="-s:${schemaDir}/${schema}.odd"/>
+            <arg line="-o:${schemaDir}/${schema}.expanded.odd"/>
         </java>
         <echo>Building RNG</echo>
         <java jar="${saxon}" fork="true">
             <arg line="-xsl:${TEIStylesheets}/odds/odd2relax.xsl"/>
-            <arg line="-s:${schemaDir}/lim.expanded.odd"/>
-            <arg line="-o:${schemaDir}/lim.rng"/>
-        </java>
-        
-        <!--And now adjust the RNG to allow person elements in any order-->
-        <move file="${schemaDir}/lim.rng" tofile="${schemaDir}/lim.rng.tmp"/>
-        <java jar="${saxon}" fork="true">
-            <arg line="-xsl:${basedir}/code/schema/fix_rng.xsl"/>
-            <arg line="-s:${schemaDir}/lim.rng.tmp"/>
-            <arg line="-o:${schemaDir}/lim.rng"/>
+            <arg line="-s:${schemaDir}/${schema}.expanded.odd"/>
+            <arg line="-o:${schemaDir}/${schema}.rng"/>
         </java>
     </target>
-    
+
     <target name="documentation" depends="install">
-        <description>
-            target: documentation
-            
-            Rebuild the documentation using the TEI Stylesheets.
-        </description>
         <ant antfile="code/documentation/build.xml" inheritall="false">
             <property name="TEIStylesheets" value="${TEIStylesheets}"/>
             <property name="saxon" value="${saxon}"/>
+            <property name="schema" value="${schema}"/>
         </ant>
     </target>
-    
-    
-  <target name="all" depends="documentation, schema">
-      <description>
-          target: all
-          
-          Creates the documentation and framework in one go 
-      </description>
-      
-  </target>
-    
-    <target name="schema" depends="makeRng">
-      <description>
-          target: schema
-          
-          Creates the RelaxNG schema and then validates files against the newly created RelaxNG.
-      </description>
-  </target>
-    
-    
+
+    <target name="all" depends="documentation, schema"/>
+
 </project>

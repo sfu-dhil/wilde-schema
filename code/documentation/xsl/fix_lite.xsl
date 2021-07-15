@@ -25,7 +25,7 @@
     
     <xsl:variable name="processedODD" select="document(replace(document-uri(.),'_lite.xml','_processed.odd'))" as="document-node()"/>
     
-    <xsl:variable name="specMap" as="map(xs:string, element())">
+    <xsl:variable name="specMap" as="map(xs:string, element()?)">
         <xsl:map>
             <xsl:for-each select="$processedODD//schemaSpec/*[not(self::constraintSpec)]">
                 <xsl:map-entry key="string(@ident)">
