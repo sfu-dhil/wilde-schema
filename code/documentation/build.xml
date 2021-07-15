@@ -1,0 +1,135 @@
+<project basedir="." default="all">
+
+    <dirname property="projectDir" file="../../lim-schema.xpr"/>
+
+
+    <property name="echo.separator">**************</property>
+
+    <!--ODD 2 Lite XSLT-->
+    <!--ODD 2 ODD XSLT (from the TEI framework)-->
+
+    <property name="odd2odd" value="${TEIStylesheets}/odds/odd2odd.xsl"/>
+    <property name="odd2Lite" value="${TEIStylesheets}/odds/odd2lite.xsl"/>
+    
+    <property name="tmpDir" value="${projectDir}/tmp"/>
+    <property name="schemaDir" value="${projectDir}/schema"/>
+    
+    
+    <property name="odd.src" value="${schemaDir}/lim.odd"/>
+    <basename property="odd.basename" file="${odd.src}"/>
+    <property name="odd.expanded" value="${tmpDir}/${odd.basename}_expanded.odd"/>
+    <property name="odd.processed" value="${tmpDir}/${odd.basename}_processed.odd"/>
+    <property name="odd.lite" value="${tmpDir}/${odd.basename}_lite.xml"/>
+    <property name="odd.fixed" value="${tmpDir}/${odd.basename}.xml"/>
+    <property name="out" value="${projectDir}/public"/>
+
+
+
+    <target name="init">
+        <echo message="${echo.separator}"/>
+        <echo message="Initiating documentation build..."/>
+        <echo message="${echo.separator}"/> 
+        <delete dir="${out}"/>
+        <mkdir dir="${out}"/>
+    </target>
+
+    <target name="copyAssets">
+        <echo message="${echo.separator}"/>
+        <echo message="Copying site assets..."/>
+        <echo message="${echo.separator}"/> 
+        <copy todir="${out}">
+            <fileset dir="${basedir}/assets">
+                <exclude name="template.html"/>
+            </fileset>
+            <fileset dir="${projectDir}/docs">
+                <include name="images/**"/>
+            </fileset>
+        </copy>
+    </target>
+    
+    <target name="md2tei">
+        <echo message="${echo.separator}"/>
+        <echo message="Convert markdown documentation files to TEI using Pandoc..."/>
+        <echo message="${echo.separator}"/> 
+        <mkdir dir="${tmpDir}/docs"/>
+        <apply executable="pandoc">
+            <arg line="-f gfm"/>
+            <arg line="-t tei"/>
+            <srcfile/>
+            <arg value="-o"/>
+            <targetfile/>
+            <arg line="--standalone"/>
+            <fileset dir="${projectDir}/docs">
+                <include name="*.md"/>
+            </fileset>
+            <globmapper from="*.md" to="${tmpDir}/docs/*.xml"/>
+        </apply>
+    </target>
+    
+    <target name="odd2ExpandedOdd">
+        <echo message="${echo.separator}"/>
+        <echo message="Expanding ODD..."/>
+        <echo message="${echo.separator}"/> 
+        <java jar="${saxon}" fork="true" failonerror="true">
+            <arg line="-s:${odd.src}"/>
+            <arg line="-o:${odd.expanded}"/>
+            <arg line="-xsl:xsl/expand_ODD.xsl"/>
+            <arg line="docsDir=${tmpDir}/docs"/>
+        </java>
+    </target>
+    
+    
+    <target name="odd2processedOdd">
+        <description>Processes the W ODD against the TEI All using
+            TEI stylesheets.</description>
+        <echo message="${echo.separator}"/>
+        <echo message="Processing the ODD and combining with P5..."/>
+        <echo message="${echo.separator}"/>
+        <java jar="${saxon}" fork="true" failonerror="true">
+            <arg line="-s:${odd.expanded}"/>
+            <arg line="-o:${odd.processed}"/>
+            <arg line="-xsl:'${odd2odd}'"/>
+            <arg line="defaultTEIServer=https://www.tei-c.org/Vault/P5/"/>
+            <arg line="defaultTEIVersion=current"/>
+        </java>
+    </target>
+
+
+    <target name="odd2lite">
+        <echo message="${echo.separator}"/>
+        <echo message="Converting ODD to Lite"/>
+        <echo message="${echo.separator}"/>
+        <java jar="${saxon}" fork="true" failonerror="true">
+            <arg line="-s:${odd.processed}"/>
+            <arg line="-o:${odd.lite}"/>
+            <arg line="-xsl:${odd2Lite}"/>
+        </java>
+    </target>
+
+    <target name="fixLite">
+        <echo message="${echo.separator}"/>
+        <echo message="Fixing Lite..."/>
+        <echo message="${echo.separator}"/>
+        <java jar="${saxon}" fork="true" failonerror="true">
+            <arg line="-s:${odd.lite}"/>
+            <arg line="-o:${odd.fixed}"/>
+            <arg line="-xsl:${basedir}/xsl/fix_lite.xsl"/>
+        </java>
+    </target>
+
+    <target name="odd2Html">
+        <echo message="${echo.separator}"/>
+        <echo message="Create site..."/>
+        <echo message="${echo.separator}"/>
+        <java jar="${saxon}" fork="true" failonerror="true" >
+            <arg value="-xsl:${basedir}/xsl/html.xsl"/>
+            <arg value="-s:${odd.fixed}"/>
+            <arg value="outDir=${out}"/>
+            <arg value="-TP:profile.html"/>
+        </java>
+    </target>
+
+
+    <target name="all" depends="init, copyAssets, md2tei, odd2ExpandedOdd, odd2processedOdd, odd2lite, fixLite, odd2Html"/>
+
+</project>

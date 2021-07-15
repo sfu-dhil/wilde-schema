@@ -1,74 +1,88 @@
-<project name="reports" default="makeRng">
-
-    <property name="dir" value="."/>
-
-    <property name="doc.dir" value="${basedir}}/docs"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="all" name="buildLIM">
+    <description>
+        Build file for creating the schema and documentation from the LiM ODD files.
+        
+        All submodules must be fetched beforehand.
+    </description>
+    
     <property name="lib.dir" value="${basedir}/lib"/>
-    <property name="schema.dir" value="${basedir}/schema"/>
-    <property name="teixsl.url" value="https://raw.githubusercontent.com/TEIC/Stylesheets/released"/>
-
+    <property name="schemaDir" value="${basedir}/schema"/>
+    <property name="TEIStylesheets" value="https://raw.githubusercontent.com/TEIC/Stylesheets/released"/>
     <property name="saxon" value="${lib.dir}/saxon10HE.jar"/>
-    <property name="jing" value="${lib.dir}/jing.jar"/>
-    <property name="xsl-schematron" value="${lib.dir}/xsl-schematron"/>
-
-    <condition property="jingAvailable">
-        <available type="file" file="${jing}"/>
-    </condition>
-    <condition property="saxonAvailable">
-        <available type="file" file="${saxon}"/>
-    </condition>
-    <condition property="xslSchematronAvailable">
-        <available type="dir" file="${xsl-schematron}"/>
-    </condition>
-
-    <target name="makeDir">
-        <dirname file="${file}" property="file.dir"/>
-        <mkdir dir="${file.dir}"/>
+    
+    <target name="install">
+        <description>target: install
+        
+        Target to fetch all of the jar files necessary for building things;
+        this includes saxon, jing, and the xsl-schematron implementation. We just
+        fetch all of those using the xml-validate-action.
+        </description>
+        <ant antfile="${basedir}/xml-validate-action/build.xml"
+            dir="${basedir}"
+            target="install">
+            <property name="saxon" value="${saxon}"/>
+        </ant>
     </target>
-
-    <target name="getJing" unless="${jingAvailable}">
-        <antcall target="makeDir">
-            <param name="file" value="${jing}"/>
-        </antcall>
-        <get src="https://repo1.maven.org/maven2/com/thaiopensource/jing/20091111/jing-20091111.jar"
-            dest="${jing}"/>
-    </target>
-
-    <target name="getSaxon" unless="${saxonAvailable}">
-        <antcall target="makeDir">
-            <param name="file" value="${saxon}"/>
-        </antcall>
-        <get src="https://repo1.maven.org/maven2/net/sf/saxon/Saxon-HE/10.3/Saxon-HE-10.3.jar"
-            dest="${saxon}"/>
-    </target>
-
-    <target name="getXslSchematron" unless="${xslSchematronAvailable}">
-        <antcall target="makeDir">
-            <param name="file" value="${xsl-schematron}.zip"/>
-        </antcall>
-        <get src="https://github.com/joeytakeda/xsl-schematron/archive/refs/tags/0.9.0.zip"
-            dest="${xsl-schematron}.zip"/>
-        <unzip src="${xsl-schematron}.zip" dest="${xsl-schematron}">
-            <cutdirsmapper dirs="1"/>
-        </unzip>
-    </target>
-
-    <target name="install" depends="getJing,getSaxon,getXslSchematron"/>
-
+    
     <target name="makeRng" depends="install">
+        <description>
+            target: makeRng
+            
+            Creates the schema using the TEI Stylesheets repository
+            (first expanding, and then convert to RelaxNG)
+        </description>
+        <echo>Expanding ODD...</echo>
         <java jar="${saxon}" fork="true">
-            <arg line="-xsl:${teixsl.url}/odds/odd2relax.xsl"/>
-            <arg line="-s:${schema.dir}/reports.odd"/>
-            <arg line="-o:${schema.dir}/reports.rng"/>
+            <arg line="-xsl:${TEIStylesheets}/odds/odd2odd.xsl"/>
+            <arg line="-s:${schemaDir}/lim.odd"/>
+            <arg line="-o:${schemaDir}/lim.expanded.odd"/>
+        </java>
+        <echo>Building RNG</echo>
+        <java jar="${saxon}" fork="true">
+            <arg line="-xsl:${TEIStylesheets}/odds/odd2relax.xsl"/>
+            <arg line="-s:${schemaDir}/lim.expanded.odd"/>
+            <arg line="-o:${schemaDir}/lim.rng"/>
+        </java>
+        
+        <!--And now adjust the RNG to allow person elements in any order-->
+        <move file="${schemaDir}/lim.rng" tofile="${schemaDir}/lim.rng.tmp"/>
+        <java jar="${saxon}" fork="true">
+            <arg line="-xsl:${basedir}/code/schema/fix_rng.xsl"/>
+            <arg line="-s:${schemaDir}/lim.rng.tmp"/>
+            <arg line="-o:${schemaDir}/lim.rng"/>
         </java>
     </target>
-
-    <target name="makeDocs" depends="install">
-        <java jar="${saxon}" fork="true">
-            <arg line="-xsl:${teixsl.url}/odds/odd2html.xsl"/>
-            <arg line="-s:${schema.dir}/reports.odd"/>
-            <arg line="-o:docs/schema.html"/>
-        </java>
+    
+    <target name="documentation" depends="install">
+        <description>
+            target: documentation
+            
+            Rebuild the documentation using the TEI Stylesheets.
+        </description>
+        <ant antfile="code/documentation/build.xml" inheritall="false">
+            <property name="TEIStylesheets" value="${TEIStylesheets}"/>
+            <property name="saxon" value="${saxon}"/>
+        </ant>
     </target>
-
+    
+    
+  <target name="all" depends="documentation, schema">
+      <description>
+          target: all
+          
+          Creates the documentation and framework in one go 
+      </description>
+      
+  </target>
+    
+    <target name="schema" depends="makeRng">
+      <description>
+          target: schema
+          
+          Creates the RelaxNG schema and then validates files against the newly created RelaxNG.
+      </description>
+  </target>
+    
+    
 </project>
