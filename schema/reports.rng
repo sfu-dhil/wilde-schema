@@ -5,14 +5,14 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-14T21:24:22Z. .  
+Schema generated from ODD source 2021-07-15T00:04:46Z. .  
 --><!---->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
            prefix="tei"
            uri="http://www.tei-c.org/ns/1.0"/>
    <define name="html">
       <element name="html" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Root element for HTML documents</a:documentation>
          <group>
             <ref name="head"/>
             <ref name="body"/>
@@ -23,7 +23,7 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
    </define>
    <define name="head">
       <element name="head" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Container for the report metadata</a:documentation>
          <group>
             <ref name="title"/>
             <group>
@@ -45,7 +45,7 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
    </define>
    <define name="title">
       <element name="title" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Container for the title of the report and the date it was published</a:documentation>
          <text/>
          <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -73,7 +73,7 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
    </define>
    <define name="meta">
       <element name="meta" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Name and content pairs that describe the report</a:documentation>
          <empty/>
          <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
                  xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -125,8 +125,8 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
-               <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Must be
-                              YYYY-MM-DD </sch:assert>
+               <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must be formatted as
+														 YYYY-MM-DD </sch:assert>
             </sch:rule>
          </pattern>
          <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
@@ -142,8 +142,8 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.language']">
-               <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> Must be one
-                              of de, en, es, fr, it. </sch:assert>
+               <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content attribute for dc.language must
+														  be one de, en, es, fr, it. </sch:assert>
             </sch:rule>
          </pattern>
          <optional>
@@ -210,7 +210,7 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
    </define>
    <define name="body">
       <element name="body" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Container for the original report and optional translation</a:documentation>
          <group>
             <ref name="div"/>
             <optional>
@@ -238,10 +238,40 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
    </define>
    <define name="div">
       <element name="div" ns="http://www.w3.org/1999/xhtml">
-         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+         <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">Container for one report or one translation. May only contain paragraph tags.</a:documentation>
          <oneOrMore>
             <ref name="p"/>
          </oneOrMore>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="wildeReports-div-div_lang-constraint-assert-7">
+            <rule context="xh:div">
+               <sch:let xmlns="http://www.tei-c.org/ns/1.0"
+                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xh="http://www.w3.org/1999/xhtml"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        name="metalang"
+                        value="//xh:meta[@name='dc.language']/@content/string()"/>
+               <sch:let xmlns="http://www.tei-c.org/ns/1.0"
+                        xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                        xmlns:xh="http://www.w3.org/1999/xhtml"
+                        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                        name="divlang"
+                        value="//xh:div[@id='original']/@lang/string()"/>
+               <sch:assert xmlns="http://www.tei-c.org/ns/1.0"
+                           xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                           xmlns:xh="http://www.w3.org/1999/xhtml"
+                           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                           test="$metalang = $divlang">The language on the original 
+                           div (<sch:value-of select="$divlang"/>) must match the language in the 
+                           metadata (<sch:value-of select="$metalang"/>).</sch:assert>
+            </rule>
+         </pattern>
          <attribute name="id">
             <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
             <choice>
@@ -292,7 +322,7 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="wildeReports-p-p_punct-constraint-assert-7">
+                  id="wildeReports-p-p_punct-constraint-assert-8">
             <rule context="xh:p">
                <sch:let xmlns="http://www.tei-c.org/ns/1.0"
                         xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -322,7 +352,7 @@ Schema generated from ODD source 2021-07-14T21:24:22Z. .
                  uri="http://www.w3.org/1999/xhtml"
                  prefix="xh"/>
          <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
-                  id="wildeReports-p-p_ellipsis-constraint-assert-8">
+                  id="wildeReports-p-p_ellipsis-constraint-assert-9">
             <rule context="xh:p">
                <sch:let xmlns="http://www.tei-c.org/ns/1.0"
                         xmlns:sch="http://purl.oclc.org/dsdl/schematron"

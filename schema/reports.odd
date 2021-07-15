@@ -33,7 +33,7 @@
             <divGen xml:id="index"/>
          </div>
       </body>
-      <back>         
+      <back>
          <div>
             <head>Appendix</head>
             <schemaSpec ident="wildeReports" start="html" ns="http://www.w3.org/1999/xhtml">
@@ -43,6 +43,7 @@
                </moduleSpec>
 
                <elementSpec ident="html" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Root element for HTML documents</desc>
                   <classes>
                      <memberOf key="att.id"/>
                   </classes>
@@ -55,6 +56,7 @@
                </elementSpec>
 
                <elementSpec ident="head" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Container for the report metadata</desc>
                   <content>
                      <sequence>
                         <elementRef key="title" minOccurs="1" maxOccurs="1"/>
@@ -65,6 +67,7 @@
                </elementSpec>
 
                <elementSpec ident="title" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Container for the title of the report and the date it was published</desc>
                   <content>
                      <textNode/>
                   </content>
@@ -87,6 +90,7 @@
                </elementSpec>
 
                <elementSpec ident="meta" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Name and content pairs that describe the report</desc>
                   <content>
                      <empty/>
                   </content>
@@ -121,8 +125,8 @@
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.date' or @name='dc.date.updated']">
-                           <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Must be
-                              YYYY-MM-DD </sch:assert>
+                           <sch:assert test="matches(@content, '^\d\d\d\d-\d\d-\d\d$')"> Date must be formatted as
+														 YYYY-MM-DD </sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec>
@@ -131,8 +135,8 @@
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.language']">
-                           <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> Must be one
-                              of de, en, es, fr, it. </sch:assert>
+                           <sch:assert test="matches(@content, '^(de|en|es|fr|it)$')"> The content attribute for dc.language must
+														  be one de, en, es, fr, it. </sch:assert>
                         </sch:rule>
                      </constraint>
                   </constraintSpec>
@@ -212,6 +216,7 @@
                </elementSpec>
 
                <elementSpec ident="body" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Container for the original report and optional translation</desc>
                   <content>
                      <elementRef key="div" minOccurs="1" maxOccurs="2"/>
                   </content>
@@ -225,12 +230,23 @@
                </elementSpec>
 
                <elementSpec ident="div" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Container for one report or one translation. May only contain paragraph tags.</desc>
                   <classes>
                      <memberOf key="att.id"/>
                   </classes>
                   <content>
                      <elementRef key="p" minOccurs="1" maxOccurs="unbounded"/>
                   </content>
+                  <constraintSpec ident="div_lang" scheme="schematron">
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:let name="metalang" value="//xh:meta[@name='dc.language']/@content/string()"/>                        
+                        <sch:let name="divlang" value="//xh:div[@id='original']/@lang/string()"/>                        
+                        <sch:assert test="$metalang = $divlang">The language on the original 
+                           div (<sch:value-of select="$divlang"/>) must match the language in the 
+                           metadata (<sch:value-of select="$metalang"/>).</sch:assert>
+                     </constraint>
+                  </constraintSpec>
                   <attList>
                      <attDef ident="id" mode="replace" usage="req">
                         <valList type="closed">
@@ -265,6 +281,7 @@
                </elementSpec>
 
                <elementSpec ident="p" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>General container tag for paragraphs, headings, and signatures.</desc>                  
                   <classes>
                      <memberOf key="att.id"/>
                   </classes>
@@ -401,6 +418,7 @@
                </elementSpec>
 
                <elementSpec ident="b" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Indicates text that was printed in boldface in the original.</desc>
                   <classes>
                      <memberOf key="model.phrase"/>
                   </classes>
@@ -413,6 +431,7 @@
                </elementSpec>
 
                <elementSpec ident="br" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>A significant line break in the report, different from text wrapped at the end of a column.</desc>
                   <classes>
                      <memberOf key="model.phrase"/>
                   </classes>
@@ -422,6 +441,7 @@
                </elementSpec>
 
                <elementSpec ident="i" ns="http://www.w3.org/1999/xhtml" module="xhtml5">
+                  <desc>Indicates text that was printed in italics in the original.</desc>
                   <classes>
                      <memberOf key="model.phrase"/>
                   </classes>
