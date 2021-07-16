@@ -2,9 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:saxon="http://saxon.sf.net/"
     xmlns="http://www.w3.org/1999/xhtml"
     xpath-default-namespace="http://www.w3.org/1999/xhtml"
-    exclude-result-prefixes="xs xhtml"
+    exclude-result-prefixes="xs xhtml saxon"
     version="2.0">
     
     <xsl:output 
@@ -12,9 +13,11 @@
         omit-xml-declaration="yes" 
         doctype-public="" 
         doctype-system="" 
-        indent="yes" 
-        encoding="UTF-8"        
-        include-content-type="no"/>
+        indent="yes"         
+        include-content-type="no"
+        normalization-form="NFC"
+        saxon:indent-spaces="2"
+    />
         
     <!-- Generated stuff to remove. -->
     <xsl:template match="//processing-instruction()" />
