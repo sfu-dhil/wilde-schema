@@ -17,8 +17,6 @@
         include-content-type="no" 
         normalization-form="NFC"/>
 
-    <xsl:variable name="quotes" select="false()"/>
-
     <!-- Generated stuff to remove. -->
     <xsl:template match="//processing-instruction()"/>
     <xsl:template match="html/@id"/>
@@ -81,6 +79,7 @@
 
     <xsl:template match="text()[normalize-space(.) != '']">
         <!-- see https://en.wikipedia.org/wiki/Quotation_mark -->
+        <!-- Eventually this will support the non-English languages. -->
         <xsl:variable name="lang" select="ancestor-or-self::*/@lang/string()"/>
         <xsl:choose>
             <xsl:when test="$lang = 'de'">
