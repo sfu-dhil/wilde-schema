@@ -1,9 +1,10 @@
-
 # Transcribing and Editing
 
-The following instructions apply to transcriptions of the reports in the Wilde Trials News Archive.
+The following instructions apply to transcriptions of news reports in the Wilde Trials International News Archive.
 
 ## Template
+
+Use the following template for transcribing news reports.
 
 ```xml
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,6 +32,8 @@ The following instructions apply to transcriptions of the reports in the Wilde T
 
 ## Metadata
 
+Enter the following metadata fields for each news report.
+
 * `dc.date` is the date the report was published. It must be formatted as shown.
 * `dc.language` is the ISO code for the language of the report. It must be one of the following values. Additional language support can be added if necessary.
  * `de` German
@@ -39,19 +42,23 @@ The following instructions apply to transcriptions of the reports in the Wilde T
  * `fr` French
  * `it` Italian
 * `dc.publisher` is the title of the paper or the name of the publisher.
-* `dc.region` is the country or other national entity where the report was published. Examples include Australia, Britain (not "British", not "England"), and Canada.
-* `dc.region.city` is the detailed location where the report was published
+* `dc.region` is the country or other national entity where the report was published. Examples include France, Australia, Britain (not "British", not "England"), and Canada.
+* `dc.region.city` is the city location where the report was published
 * TODO: add dc.source fields.
 
-## Content
+## Content  
 
-The Wilde Trials content includes automatically generated translations of non-English reports. We use `<div>` tags to distunguish the original and translated content.
+The text of the news report follows the metadata between `<body>` tags.
 
-Every report must include `<div id="original" lang="">` and a corresponding `</div>` tag. The value of the `lang` attribute must match the `content` of the `dc.language` meta tag.
+The body of each news report must include `<div id="original" lang="">` and a corresponding `</div>` tag. The value of the `lang` attribute must match the `content` of the `dc.language` meta tag.
 
-### Headings & Signatures
+The content includes automatically generated translations of non-English reports. We also use `<div>` tags to distinguish the original and translated content.
 
-Headings are marked up in paragraph tags (`<p>...</p>`) with the class set to "heading". Normal paragraphs do not include a class. Some reports include an author name. Those signatures are marked up in a paragraph with the class set to "signature". There are no other allowable classes for paragraphs.
+### Headlines & Signatures
+
+Headlines are marked up in paragraph tags (`<p>...</p>`) with the class set to "heading". Normal paragraphs do not include a class. 
+
+Some news reports are signed. Those signatures are marked up in a paragraph with the class set to "signature". There are no other allowable classes for paragraphs.
 
 ### Formatting
 
@@ -62,3 +69,5 @@ Text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
 ### Omitted/unreadable Content
 
 Any text that is unreadable in the original report or facsimile is indicated with square brackets and three periods: `[...]`. Spaces are not allowed inside the square brackets or between the periods.
+
+
