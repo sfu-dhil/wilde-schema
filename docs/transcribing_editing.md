@@ -75,15 +75,19 @@ For long letters or passages from literature, use paragraph breaks with paragrap
 
 ### Transcriptions
 
-Transcribe everything in the news report, even if misspelled. 
+Use Unicode (UTF-8) consistently on all files to ensure the accented characters are encoded correctly.
 
-Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
+* Transcribe everything in the news report, even if misspelled. 
 
-Use the M dash for dashes.
+* Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
 
-For English-language papers, use straight quotation marks: " 
+* Use the M dash for dashes.
 
-For French-language papers, use les guillemets. 
+* For English-language papers, use straight quotation marks: " 
+
+* For French-language papers, use guillemets. 
+
+* For ampersands in an xml document, including in a URL, type “&amp;”.
 
 
 ### Omitted/Unreadable Text
