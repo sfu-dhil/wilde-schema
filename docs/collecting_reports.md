@@ -27,10 +27,9 @@ Collect illustrations of Wilde, the trials, and his imprisonment from the releva
 
 ## Newspaper Collection Tools
 
-For Australian newspapers in the Trove database, use the custome-built Trove tool to collect articles. http://www.sfu.ca/~mjoyce/wt/
-Enter the API key (mib19ga3a20n24tt) and the individual article ID
-(eg. 54465473 from https://trove.nla.gov.au/newspaper/article/54465473) and
-submit the request. Copy and paste the marked up text into a new file in Oxygen for editing. 
+For Australian newspapers in the Trove database, use the custome-built Trove tool to collect articles. http://www.sfu.ca/~mjoyce/wt/. Copy and paste the marked up text into a new file in Oxygen for editing. 
 
-For American newspapers in the Chronicling America database, use the CA tool to collect articles. http://www.sfu.ca/~mjoyce/wt/ca.html
+For American newspapers in the Chronicling America database, use the CA tool to collect articles. http://www.sfu.ca/~mjoyce/wt/ca.html. Copy and paste the marked up text into a new file in Oxygen for editing. 
+
+Contact the PI, developers, or DHIL for the correct API keys.
 
