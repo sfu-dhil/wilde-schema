@@ -6,10 +6,10 @@
 ### Overview
 Newspapers around the world published news articles very differently, and digitization technologies make different choices about article segmentation. Together, these factors raise a big question: what is a news article? The Wilde Trials International News Archive has developed some criteria for determining what constitutes a news article and thus gets transcribed as an individual file.
 
-### Search protocols
+### Search Protocols
 Collect all relevant articles on the Wilde trials and aftermath between April 1 1895 to Dec 31 1895. When browsing a newspaper for articles, make sure to examine each issue printed within the period. When searching a newspaper database for articles, use the search term “Oscar Wilde.” Then try “Wilde,” “Queensberry,” and “Lord Alfred Douglas” to see if these terms catch more results.
 
-### Collection protocols
+### Collection Protocols
 To determine what constitutes an article, prioritize evidence from the newspaper over the database’s article segmentation. In other words, does the newspaper represent it as an individual article? (eg. Does it have a headline; is it separated from other articles?). In most cases, it should be easy to figure out what is an individual news article.
 
 If there are a few different news articles published on the same day which appear in different parts of the newspaper, each of these news articles is considered a distinctive news article and gets transcribed as an individual file.
