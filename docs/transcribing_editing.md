@@ -32,7 +32,7 @@ Use the following template for transcribing news reports.
 
 ## Metadata
 
-Enter the following metadata fields for each news report.
+Enter the following metadata fields for each news report, following Dublin Core Standards.
 
 * `dc.date` is the date the report was published. It must be formatted as shown.
 * `dc.language` is the ISO code for the language of the report. It must be one of the following values. Additional language support can be added if necessary.
@@ -62,12 +62,30 @@ Some news reports are signed. Those signatures are marked up in a paragraph with
 
 ### Formatting
 
+Preserve the paragraph breaks of the original news report.
+
 Line breaks (`<br/>`) can be used inside paragraphs. They cannot be used outside of paragraphs or anywhere else.
 
-Text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
+There is no need to respect the line breaks of the original news report, except in the case of headlines..
 
-### Omitted/unreadable Content
+For short letters, telegrams or lines of poetry/literature, use single line breaks when there is a line break. The new line should begin with a break: (`<br/>`)
 
-Any text that is unreadable in the original report or facsimile is indicated with square brackets and three periods: `[...]`. Spaces are not allowed inside the square brackets or between the periods.
+For long letters or passages from literature, use paragraph breaks with paragraph tags: (`<p>`)
 
 
+### Transcriptions
+
+Transcribe everything in the news report, even if misspelled. 
+
+Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
+
+Use the M dash for dashes.
+
+For English-language papers, use straight quotation marks: " 
+
+For French-language papers, use les guillemets. 
+
+
+### Omitted/Unreadable Text
+
+Any text that is unreadable in the original report is indicated with square brackets and three periods: `[...]`. Spaces are not allowed inside the square brackets or between the periods.
