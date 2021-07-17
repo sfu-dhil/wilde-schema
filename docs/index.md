@@ -6,4 +6,5 @@
 * [GitHub File Workflow](workflow.md)
 * [Managing Files] (file_management.md)
 * [Transcribing and Editing](transcribing_editing.md)
+* todo: maybe one on reviewing/checking procedures.
 
