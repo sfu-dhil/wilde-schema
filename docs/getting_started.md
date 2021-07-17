@@ -11,7 +11,7 @@ Before working on the Wilde Reports, there are two pieces of software you will n
 
 ## Getting a copy of the reports
 
-* Create a fork of the Wilde Trials repository
+* Create a fork of the Wilde Reports repository
 * Use GitHub Desktop to clone your fork of the repository to your computer
 
 ## Setting up oXygen
