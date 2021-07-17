@@ -1,5 +1,5 @@
 
-# GitHub Workflow
+# GitHub and oXygen Workflow
 
 ## Updating your Repository
 
@@ -19,7 +19,7 @@ Update your local copy of the repository by merging any changes from the upstrea
 
 ## Editing in oXygen
 
-All work on the reports should be done in oXygen. It is an incredibly powerful and useful tool for editing XML & XHTML and there are a number of custom features and tools that will editing easier and more efficient.
+All work on the reports should be done in oXygen. It is an incredibly powerful and useful tool for editing XML & XHTML, and there are a number of custom features and tools that will make editing easier and more efficient.
 
 When you open oXygen, make sure you see the `reports.xpr` project in the oXygen project pane (usually on the left-hand side):
 
@@ -43,7 +43,7 @@ Once the document finishes validating, there will be a message at the bottom of 
 
 Try your best to determine what the error is: the validation message usually provides a good indication of what the error is (some are more helpful than others); the problem is quite often something simple like a typo, an errant space at the beginning or end of an element, or a missing quotation mark.
 
-If you can't figure out the error, then it is OK to commit the file, but do let the team and the developers know right away so that the error can be resolved as soon as possible.
+If you can't figure out the error, then it is OK to commit the file, but do let the PI and the developers know right away so that the error can be resolved as soon as possible.
 
 If you find an error message that is very unhelpful, and can think of better wording to make the error and appropriate resolution clear, please file a [GitHub Issue](https://github.com/sfu-dhil/wilde-schema/issues) and provide an example of the error and suggested improvement.
 
@@ -59,7 +59,7 @@ Before:
 After:
 ![Cleanup After](images/oxygen_cleanup_after.png)
 
-The cleanup script has removed the all the unnecessary, redundant, and generated content. These parts of the report have all been removed:
+The cleanup script has removed all the unnecessary, redundant, and generated content. These parts of the report have all been removed:
 
 * The XML processing instruction `<?xml version="1.0" encoding="UTF-8"?>`
 * The `id` attribute on the html tag
@@ -69,19 +69,19 @@ The cleanup script has removed the all the unnecessary, redundant, and generated
 * Paragraph `id` attributes
 * The translation `div` (not shown in this example)
 
-And the attributes on `meta` tags have been reorded. The name attribute is first to aid readability, and the meta tags have been sorted by the name attribute.
+And the attributes on `meta` tags have been reordered. The name attribute is first to aid readability, and the meta tags have been sorted by the name attribute.
 
 ## Preview
 
 Finding errors in raw XML can be difficult. For that reason we have added a preview in oXygen.
 
-The default action in oXygen is to clean up the current report. For the preview to work you must switch to the preview action.
+The default action in oXygen is to clean up the current report. For the preview to work, you must switch to the preview action.
 
 Click the wrench icon in the toolbar. Uncheck `Clean Report` and check `Preview Report`.
 
 ![Configure Preview](images/oxygen_configure_transformation.png)
 
-Now when you use the keyboard shortcut CMD+Shift+T (CMD = ⌘ on Mac) or click the red play icon in the toolbar, oXygen will generate a preview file and open it in the web browser of your choice. The display will mimic the display on the live site, including the metadata. You can proof the report and make any corrections in oXygen.
+When you use the keyboard shortcut CMD+Shift+T (CMD = ⌘ on Mac) or click the red play icon in the toolbar, oXygen will generate a preview file and open it in the web browser of your choice. The display will mimic the display on the live site, including the metadata. You can proof the report and make any corrections in oXygen.
 
 ![Preview](images/preview.png)
 
