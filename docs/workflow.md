@@ -1,5 +1,5 @@
 
-# Workflow
+# GitHub Workflow
 
 ## Updating your Repository
 
@@ -15,7 +15,7 @@ Update your local copy of the repository by merging any changes from the upstrea
 ![Select upstream main](images/select_upstream_main.png)
 * Depending on whether your repository is up to date:
 	* If there are no changes to merge (This branch is up to date ...), then you're done!
-	* If there are changes to merge (This will merge x commits...), then click Merge upstream/main
+	* If there are changes to merge (This will merge x commits...), then click Merge upstream/main.
 
 ## Editing in oXygen
 
