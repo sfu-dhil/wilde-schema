@@ -104,7 +104,7 @@ Once you have committed your changes, you must push the changes to GitHub's serv
 
 ## Creating a Pull Request
 
-When you have completed work on one paper and are ready for your changes to be incorporated into the central Wilde Trials repository you should create a pull request. This is done through the GitHub website.
+When you have completed work on one paper and are ready for your changes to be incorporated into the central Wilde Reports repository you should create a pull request. This is done through the GitHub website.
 
 Open the GitHub web page for your fork of the Wilde Reports repository. There should be a message similar to "This branch is 1 commit ahead of sfu_dhil:main." Next to the message is a `Contribute` drop down. Use the `Open pull request` button to start a pull request.
 
@@ -115,5 +115,7 @@ Now is another chance to review your work. Check carefully, and if you need to m
 Once you are satisfied with the changes, use the `Create pull request` button. Create the pull request by filling out the message `Title` and `comment` boxes. In some cases GitHub may pre-fill the title and comment fields. Check that they are accurate and edit add any additional information you believe is important.
 
 These pull request messages are helpful for record keeping and for tracking chages to the reports. They are permanent and may be public in the future.
+
+Make sure you assign the PI as the reviewer of your pull request.
 
 ![Create pull Request](images/github_create_pull_request.png)
