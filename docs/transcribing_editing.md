@@ -84,11 +84,7 @@ Preserve original capitalisation and punctuation. Note that it is not required t
 
 Use the M dash for dashes.
 
-For English-language papers, use straight quotation marks (" ").
-
-For French-language papers, use guillemets (« »). 
-
-For German-language papers, use („…“).
+For English-language newspapers, use straight quotation marks (" "). For French-language newspapers, use guillemets (« »). For German-language newspapers, use („ “). For Spanish and Italian-language newspapers, follow the practice of the newspoapers, which may use quotation marks or guillemets.
 
 For ampersands (&) in an xml document, including in a URL, type "&amp"
 
