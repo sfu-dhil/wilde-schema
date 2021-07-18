@@ -41,14 +41,17 @@ Enter the following metadata fields for each news report, following Dublin Core 
  * `es` Spanish
  * `fr` French
  * `it` Italian
-* `dc.publisher` is the title of the paper or the name of the publisher.
+* `dc.publisher` is the title of the newspaper.
 * `dc.region` is the country or other national entity where the report was published. Examples include France, Australia, Britain (not "British", not "England"), and Canada.
-* `dc.region.city` is the city location where the report was published
-* TODO: add dc.source fields.
+* `dc.region.city` is the city where the newspaper was published
+* `dc.source.database` is the database source for the report.
+* `dc.source.institution` is the institutional source for the report.
+* `dc.source.facsimile` is the facsimile page of the report.
+* `dc.source.url` is the url for the digital newspaper or for the institutional catalogue that holds the original print copies.
 
 ## Content  
 
-The text of the news report follows the metadata between `<body>` tags.
+Enter the text of the news report within `<body>` tags.
 
 The body of each news report must include `<div id="original" lang="">` and a corresponding `</div>` tag. The value of the `lang` attribute must match the `content` of the `dc.language` meta tag.
 
@@ -66,28 +69,26 @@ Preserve the paragraph breaks of the original news report.
 
 Line breaks (`<br/>`) can be used inside paragraphs. They cannot be used outside of paragraphs or anywhere else.
 
-There is no need to respect the line breaks of the original news report, except in the case of headlines..
+There is no need to respect the line breaks of the original news report, except in the case of headlines and short letters, telegrams or lines of poetry/literature. The new line should begin with a break: (`<br/>`)
 
-For short letters, telegrams or lines of poetry/literature, use single line breaks when there is a line break. The new line should begin with a break: (`<br/>`)
-
-For long letters or passages from literature, use paragraph breaks with paragraph tags: (`<p>`)
+For long letters, passages from literature, or testimony use paragraph breaks with paragraph tags: (`<p>`)
 
 
 ### Transcriptions
 
 Use Unicode (UTF-8) consistently on all files to ensure the accented characters are encoded correctly.
 
-* Transcribe everything in the news report, even if misspelled. 
+Transcribe everything in the news report, even if misspelled. 
 
-* Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
+Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
 
-* Use the M dash for dashes.
+Use the M dash for dashes.
 
-* For English-language papers, use straight quotation marks: " 
+For English-language papers, use straight quotation marks (" ").
 
-* For French-language papers, use guillemets. 
+For French-language papers, use guillemets (« »). 
 
-* For ampersands in an xml document, including in a URL, type “&amp;”.
+For ampersands (&) in an xml document, including in a URL, type "&amp"
 
 
 ### Omitted/Unreadable Text

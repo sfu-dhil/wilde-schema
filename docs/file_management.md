@@ -11,7 +11,7 @@ The Wilde Trials International News Archive uses the following nested foldering 
    
 ## File Names
 
-Create a unique file for each individual news report. The name of the news report should follow this format, making sure to preserve the article ( “the”) when it is part of the newspaper title. 
+A unique file is created for each individual news report. The name of the news report should follow this format, making sure to preserve the article (“the”) when it is part of the newspaper title. 
 
 * The Australian Star - May 22 1895.xml
 
