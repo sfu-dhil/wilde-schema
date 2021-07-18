@@ -11,7 +11,7 @@ To determine what constitutes an article, prioritize evidence from the newspaper
 
 If there are a few different news articles published on the same day which appear in different parts of the newspaper, each of these news articles is considered a distinctive news article and gets transcribed as an individual file.
 
-If there is one long column, with multiple news items, including items pertaining to the Wilde trials, transcribe the relevant news items, while omitting the non-relevant news items. Use [xyz] to indicate if there is text that you have excerpted in the middle of the selected news artcle. 
+If there is one long column, with multiple news items, including items pertaining to the Wilde trials, transcribe the relevant news items, while omitting the non-relevant news items. Use `<p class='omitted'></p>` to indicate if there is text that you have excerpted in the middle of the selected news article. 
 
 In cases where there are two articles that appear one after the other, some judgement call will be needed. If a significant headline or large dividing feature separates the two items, treat them as separate articles and transcribe each in its own separate file.
  
