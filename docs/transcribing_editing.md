@@ -88,6 +88,8 @@ For English-language papers, use straight quotation marks (" ").
 
 For French-language papers, use guillemets (« »). 
 
+For German-language papers, use („…“).
+
 For ampersands (&) in an xml document, including in a URL, type "&amp"
 
 
