@@ -27,7 +27,7 @@ Collect illustrations of Wilde, the trials, and his imprisonment from the releva
 
 ## Newspaper Collection Tools
 
-For Australian newspapers in the Trove database, use the custome-built Trove tool to collect articles. http://www.sfu.ca/~mjoyce/wt/. Copy and paste the marked up text into a new file in Oxygen for editing. 
+For Australian newspapers in the Trove database, use the custom-built Trove tool to collect articles. http://www.sfu.ca/~mjoyce/wt/. Copy and paste the marked up text into a new file in Oxygen for editing. 
 
 For American newspapers in the Chronicling America database, use the CA tool to collect articles. http://www.sfu.ca/~mjoyce/wt/ca.html. Copy and paste the marked up text into a new file in Oxygen for editing. 
 
