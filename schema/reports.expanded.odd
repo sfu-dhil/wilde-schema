@@ -20,17 +20,19 @@
       <front>
          <div>
             <head>
-               <title>Wilde Trials News Archive</title>
+               <title>Wilde Trials News International Archive</title>
             </head>
-            <p>This document serves as the technical documentation for the <title>Wilde Trials News
-                  Archive</title>. At the moment (mid 2021) it is mostly a collection of notes to
-               help with transcribing the reports and documenting the project workflow.</p>
+            <p>This document serves as the technical documentation for the <title>Wilde Trials International News
+                  Archive</title>. At the moment (mid 2021) it is a collection of guidelines to
+               help with transcribing the news reports and documenting the project workflow.</p>
             <p>If you find an error in this document or have suggestions for improvement, please
-               create a <ref target="https;//github.com/sfu-dhil/wilde-schema/issues">GitHub
+               create a <ref target="https://github.com/sfu-dhil/wilde-schema/issues">GitHub
                   Issue</ref>. All suggestions are welcome.</p>
             <p>The included schema was inspired by <ref target="https://journals.openedition.org/jtei/3106">Using ODD for HTML</ref> by
                Martin Holmes. This documentation and publishing set up borrows heavily from the <ref target="https://sfu-dhil.github.io/lim-schema/index.html">Lyon in Mourning</ref>
-               schema and documentation written by Joey Takeda.</p>
+               schema and documentation written by Joey Takeda. The guidelines for collecting
+							 and editing the news reports have been developed, over several years,
+							 by the PI and the team of research assistants.</p>
          </div>
       </front>
       <body>
