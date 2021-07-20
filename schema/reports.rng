@@ -5,7 +5,7 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-07-19T16:41:48Z. .
+Schema generated from ODD source 2021-07-20T21:38:04Z. .
 TEI Edition: Version 4.2.2. Last updated on
 	9th April 2021, revision 609a109b1
 TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
@@ -364,9 +364,27 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
                            xmlns:xh="http://www.w3.org/1999/xhtml"
                            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                            test="not($text = '[...]')"> Omitted/unrelated paragraphs should
-                           not be indicated with &lt;p&gt;[...]&lt;/p&gt;
+                           not be indicated with &lt;p&gt;[...]&lt;/p&gt;. Use &lt;p class='omitted'&gt;&lt;/p&gt; instead
                         </sch:assert>
             </rule>
+         </pattern>
+         <sch:ns xmlns="http://www.tei-c.org/ns/1.0"
+                 xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                 xmlns:xh="http://www.w3.org/1999/xhtml"
+                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                 uri="http://www.w3.org/1999/xhtml"
+                 prefix="xh"/>
+         <pattern xmlns="http://purl.oclc.org/dsdl/schematron"
+                  id="wildeReports-p-p_omitted-constraint-rule-6">
+            <sch:rule xmlns="http://www.tei-c.org/ns/1.0"
+                      xmlns:sch="http://purl.oclc.org/dsdl/schematron"
+                      xmlns:xh="http://www.w3.org/1999/xhtml"
+                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                      context="xh:p[@class = 'omitted']">
+               <sch:assert test="normalize-space(.) = ''">
+                              Omitted paragraphs must be empty
+                           </sch:assert>
+            </sch:rule>
          </pattern>
          <ref name="att.id.attributes"/>
          <optional>
@@ -374,9 +392,11 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
                <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
                <choice>
                   <value>heading</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">The paragraph contains a headine</a:documentation>
+                  <value>omitted</value>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">The content was omitted from the transcription because it is not related to the trials of Oscar Wilde</a:documentation>
                   <value>signature</value>
-                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"/>
+                  <a:documentation xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0">The paragraph contains the name or initials of the author</a:documentation>
                </choice>
             </attribute>
          </optional>

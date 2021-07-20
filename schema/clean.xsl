@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet 
+<xsl:stylesheet
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
-    xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns="http://www.w3.org/1999/xhtml"
     xpath-default-namespace="http://www.w3.org/1999/xhtml"
-    exclude-result-prefixes="xs xhtml" 
+    exclude-result-prefixes="xs xhtml"
     version="2.0">
 
-    <xsl:output 
-        method="xhtml" 
-        omit-xml-declaration="yes" 
-        doctype-public="" 
+    <xsl:output
+        method="xhtml"
+        omit-xml-declaration="yes"
+        doctype-public=""
         doctype-system=""
-        indent="yes" 
-        include-content-type="no" 
+        indent="yes"
+        include-content-type="no"
         normalization-form="NFC"/>
 
     <!-- Generated stuff to remove. -->
@@ -32,10 +32,9 @@
 
     <xsl:template match="a" priority="1"/>
     <xsl:template match="p/@id"/>
-    <xsl:template match="p[text() = '[...]']"/>
     <xsl:template match="div[@id = 'translation']"/>
 
-    <!-- Make sure the head tag starts with a title and then contains only meta 
+    <!-- Make sure the head tag starts with a title and then contains only meta
          elements sorted by @name and @content. -->
     <xsl:template match="head">
         <head>
@@ -49,6 +48,10 @@
                 <xsl:sort select="@content"/>
             </xsl:apply-templates>
         </head>
+    </xsl:template>
+
+    <xsl:template match="p[text() = '[...]']">
+      <p class='omitted'></p>
     </xsl:template>
 
     <!-- Normalize Non-mixed content text -->

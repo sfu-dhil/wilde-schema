@@ -324,16 +324,34 @@
                         <sch:assert test="not(matches($text, '(\.\s+\.\.)|(\.\.\s+\.)'))"> Spaces
                            are not allowed inside elipsis </sch:assert>
                         <sch:assert test="not($text = '[...]')"> Omitted/unrelated paragraphs should
-                           not be indicated with <![CDATA[<p>[...]</p>]]>
+                           not be indicated with <![CDATA[<p>[...]</p>]]>. Use <![CDATA[<p class='omitted'></p>]]> instead
                         </sch:assert>
                      </constraint>
                   </constraintSpec>
-
+                  
+                  <constraintSpec ident="p_omitted" scheme="schematron"> 
+                     <constraint>
+                        <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
+                        <sch:rule context="xh:p[@class = 'omitted']">
+                           <sch:assert test="normalize-space(.) = ''">
+                              Omitted paragraphs must be empty
+                           </sch:assert>
+                        </sch:rule>
+                     </constraint>
+                  </constraintSpec>                
+                  
                   <attList>
                      <attDef ident="class">
                         <valList type="closed">
-                           <valItem ident="heading"/>
-                           <valItem ident="signature"/>
+                           <valItem ident="heading">
+                              <desc>The paragraph contains a headine</desc>
+                           </valItem>
+                           <valItem ident="omitted">
+                              <desc>The content was omitted from the transcription because it is not related to the trials of Oscar Wilde</desc>
+                           </valItem>
+                           <valItem ident="signature">
+                              <desc>The paragraph contains the name or initials of the author</desc>
+                           </valItem>
                         </valList>
                      </attDef>
                   </attList>

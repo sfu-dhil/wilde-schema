@@ -59,7 +59,7 @@ The content includes automatically generated translations of non-English reports
 
 ### Headlines & Signatures
 
-Headlines are marked up in paragraph tags (`<p>...</p>`) with the class set to "heading". Normal paragraphs do not include a class. 
+Headlines are marked up in paragraph tags (`<p>...</p>`) with the class set to "heading". Normal paragraphs do not include a class.
 
 Some news reports are signed. Those signatures are marked up in a paragraph with the class set to "signature". There are no other allowable classes for paragraphs.
 
@@ -78,7 +78,7 @@ For long letters, passages from literature, or testimony use paragraph breaks wi
 
 Use Unicode (UTF-8) consistently on all files to ensure the accented characters are encoded correctly.
 
-Transcribe everything in the news report, even if misspelled. 
+Transcribe everything in the news report, even if misspelled.
 
 Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
 
