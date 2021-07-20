@@ -57,11 +57,15 @@ The body of each news report must include `<div id="original" lang="">` and a co
 
 The content includes automatically generated translations of non-English reports. We also use `<div>` tags to distinguish the original and translated content.
 
-### Headlines & Signatures
+### Headlines & Signatures & Omitted Text
 
 Headlines are marked up in paragraph tags (`<p>...</p>`) with the class set to "heading". Normal paragraphs do not include a class.
 
-Some news reports are signed. Those signatures are marked up in a paragraph with the class set to "signature". There are no other allowable classes for paragraphs.
+Some news reports are signed. Those signatures are marked up in a paragraph with the class set to "signature".
+
+In cases where there is one column, and many different articles, with Wilde text mixed in, you should just select the text that has Wilde content. Only use `<p class='omitted'></p>` to indicate if there is text that you have not excerpted in the middle of the selected news report. We are NO LONGER using [...] at beginning and/or ending of the article to show skipped text.
+
+The only classes allowed on paragraph tags are `heading`, `signature`, and `omitted`.
 
 ### Formatting
 

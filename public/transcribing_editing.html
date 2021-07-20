@@ -47,7 +47,7 @@
                      <li><span class="nav-item"><a href="transcribing_editing.html#metadata">Metadata</a></span></li>
                      <li class="expandable"><span class="nav-item"><a href="transcribing_editing.html#content">Content</a><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
                                  <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
-                           <li><span class="nav-item"><a href="transcribing_editing.html#headlines--signatures">Headlines &amp; Signatures</a></span></li>
+                           <li><span class="nav-item"><a href="transcribing_editing.html#headlines--signatures--omitted-text">Headlines &amp; Signatures &amp; Omitted Text</a></span></li>
                            <li><span class="nav-item"><a href="transcribing_editing.html#formatting">Formatting</a></span></li>
                            <li><span class="nav-item"><a href="transcribing_editing.html#transcriptions">Transcriptions</a></span></li>
                            <li><span class="nav-item"><a href="transcribing_editing.html#omittedunreadable-text">Omitted/Unreadable Text</a></span></li>
@@ -251,9 +251,9 @@
                      non-English reports. We also use <a href="TEI.xh_div.html" class="ref"><span class="gi">div</span></a>
                      tags to distinguish the original and translated content.</div>
                   
-                  <div class="div" id="headlines--signatures">
+                  <div class="div" id="headlines--signatures--omitted-text">
                      
-                     <h3>Headlines &amp; Signatures</h3>
+                     <h3>Headlines &amp; Signatures &amp; Omitted Text</h3>
                      
                      <div class="p" id="_d2e828">Headlines are marked up in paragraph tags
                         (<span class="gi">p&gt;...&lt;/p</span>) with the class set
@@ -261,26 +261,41 @@
                         class.</div>
                      
                      <div class="p" id="_d2e833">Some news reports are signed. Those signatures are marked up in
-                        a paragraph with the class set to "signature". There are
-                        no other allowable classes for paragraphs.</div>
+                        a paragraph with the class set to "signature".</div>
+                     
+                     <div class="p" id="_d2e835">In cases where there is one column, and many different
+                        articles, with Wilde text mixed in, you should just select the
+                        text that has Wilde content. Only use
+                        <span class="gi">p class='omitted'&gt;&lt;/p</span> to
+                        indicate if there is text that you have not excerpted in the
+                        middle of the selected news report. We are NO LONGER using [...]
+                        at beginning and/or ending of the article to show skipped
+                        text.</div>
+                     
+                     <div class="p" id="_d2e840">The only classes allowed on paragraph tags are
+                        
+                        <pre class="code">heading</pre>, 
+                        <pre class="code">signature</pre>,
+                        and 
+                        <pre class="code">omitted</pre>.</div>
                      </div>
                   
                   <div class="div" id="formatting">
                      
                      <h3>Formatting</h3>
                      
-                     <div class="p" id="_d2e841">Preserve the paragraph breaks of the original news report.</div>
+                     <div class="p" id="_d2e855">Preserve the paragraph breaks of the original news report.</div>
                      
-                     <div class="p" id="_d2e843">Line breaks (<span class="gi">br/</span>) can be used
+                     <div class="p" id="_d2e857">Line breaks (<span class="gi">br/</span>) can be used
                         inside paragraphs. They cannot be used outside of paragraphs or
                         anywhere else.</div>
                      
-                     <div class="p" id="_d2e848">There is no need to respect the line breaks of the original
+                     <div class="p" id="_d2e862">There is no need to respect the line breaks of the original
                         news report, except in the case of headlines and short letters,
                         telegrams or lines of poetry/literature. The new line should begin
                         with a break: (<span class="gi">br/</span>)</div>
                      
-                     <div class="p" id="_d2e853">For long letters, passages from literature, or testimony use
+                     <div class="p" id="_d2e867">For long letters, passages from literature, or testimony use
                         paragraph breaks with paragraph tags:
                         (<a href="TEI.xh_p.html" class="ref"><span class="gi">p</span></a>)</div>
                      </div>
@@ -289,27 +304,27 @@
                      
                      <h3>Transcriptions</h3>
                      
-                     <div class="p" id="_d2e864">Use Unicode (UTF-8) consistently on all files to ensure the
+                     <div class="p" id="_d2e878">Use Unicode (UTF-8) consistently on all files to ensure the
                         accented characters are encoded correctly.</div>
                      
-                     <div class="p" id="_d2e866">Transcribe everything in the news report, even if
+                     <div class="p" id="_d2e880">Transcribe everything in the news report, even if
                         misspelled.</div>
                      
-                     <div class="p" id="_d2e868">Preserve original capitalisation and punctuation. Note that it
+                     <div class="p" id="_d2e882">Preserve original capitalisation and punctuation. Note that it
                         is not required to format italics or font changes, but text may be
                         marked up as italicized
                         (<span class="gi">i&gt;...&lt;/i</span>) or bolded
                         (<span class="gi">b&gt;...&lt;/b</span>).</div>
                      
-                     <div class="p" id="_d2e875">Use the M dash for dashes.</div>
+                     <div class="p" id="_d2e889">Use the M dash for dashes.</div>
                      
-                     <div class="p" id="_d2e878">For English-language newspapers, use straight quotation marks
+                     <div class="p" id="_d2e892">For English-language newspapers, use straight quotation marks
                         (" "). For French-language newspapers, use guillemets («
                         »). For German-language newspapers, use („ “). For Spanish and
                         Italian-language newspapers, follow the practice of the
                         newspapers, which may use quotation marks or guillemets.</div>
                      
-                     <div class="p" id="_d2e880">For ampersands (&amp;) in an xml document, including in a URL,
+                     <div class="p" id="_d2e894">For ampersands (&amp;) in an xml document, including in a URL,
                         type "&amp;amp"</div>
                      </div>
                   
@@ -317,7 +332,7 @@
                      
                      <h3>Omitted/Unreadable Text</h3>
                      
-                     <div class="p" id="_d2e887">Any text that is unreadable in the original report is indicated
+                     <div class="p" id="_d2e901">Any text that is unreadable in the original report is indicated
                         with square brackets and three periods:
                         
                         <pre class="code">[...]</pre>. Spaces are not allowed inside the
