@@ -2,3 +2,4 @@ lib
 samples
 preview.html
 tmp
+.DS_Store

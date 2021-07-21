@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="all" name="buildLIM">
-    <description> Build file for creating the schema and documentation from the LiM ODD files. All
+<project basedir="." default="all" name="buildWilde">
+    <description> Build file for creating the schema and documentation from the Wilde Reports ODD files. All
         submodules must be fetched beforehand. </description>
 
     <property name="schema" value="reports"/>
