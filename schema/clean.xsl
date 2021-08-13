@@ -102,6 +102,9 @@
             <xsl:when test="$lang = 'it'">
                 <xsl:value-of select="."/>
             </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
 
