@@ -63,7 +63,7 @@ Headlines are marked up in paragraph tags (`<p>...</p>`) with the class set to "
 
 Some news reports are signed. Those signatures are marked up in a paragraph with the class set to "signature".
 
-In cases where there is one column, and many different articles, with Wilde text mixed in, you should just select the text that has Wilde content. Only use `<p class='omitted'></p>` to indicate if there is text that you have not excerpted in the middle of the selected news report. We are NO LONGER using [...] at beginning and/or ending of the article to show skipped text.
+In cases where there is one news column, but many different reports, you should just transcribe the reports related to the Wilde trials. Only use `<p class='omitted'></p>` to indicate if there is text that you have not excerpted in the middle of the selected news report. We are NO LONGER using [...] at the beginning and/or the ending of the report to show omitted text.
 
 The only classes allowed on paragraph tags are `heading`, `signature`, and `omitted`.
 
@@ -83,8 +83,7 @@ For long letters, passages from literature, or testimony use paragraph breaks wi
 Use Unicode (UTF-8) consistently on all files to ensure the accented characters are encoded correctly.
 
 Transcribe everything in the news report, even if misspelled.
-
-Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
+Preserve original capitalization and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
 
 Use the M dash for dashes.
 

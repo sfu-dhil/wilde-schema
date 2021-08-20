@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project version="21.1">
     <meta>
         <filters directoryPatterns="" filePatterns="\Qreport-schema.xpr\E" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized xml:space="preserve">
+            <serialized version="21.1" xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>document.types</String>
                         <documentTypeDescriptor-array>
                             <documentTypeDescriptor>
-                                <field name="webResources">
-                                    <null/>
-                                </field>
                                 <field name="extensionPatch">
                                     <null/>
                                 </field>
@@ -331,9 +328,6 @@
                                 </field>
                             </documentTypeDescriptor>
                             <documentTypeDescriptor>
-                                <field name="webResources">
-                                    <null/>
-                                </field>
                                 <field name="extensionPatch">
                                     <null/>
                                 </field>
@@ -742,63 +736,7 @@
                         <documentTypeEntry-array>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/dita/dita_2.x_extension.exf/DITA 2.x</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/dita/dita_map_2.x.exf/DITA Map 2.x</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/dita/dita_map_with_resolved_topics.exf/DITA Map with Resolved Topics</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/dita/ditamap-lw.exf/Lightweight DITA - Map</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/dita/dita-lw.exf/Lightweight DITA - Topic</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
                                     <String>2/internal/Report Samples</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples/application_form.framework/Application Form (Sample)</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples-json/application_form_sample_json_.framework/Application Form (Sample-JSON)</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -815,22 +753,6 @@
                             <documentTypeEntry>
                                 <field name="documentTypeID">
                                     <String>6/dita/ditamap.framework/DITA Map</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/dita/dita-ot-plugin.framework/DITA-OT Plugin</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/dita/dita-ot-project.framework/DITA-OT Project</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -895,14 +817,6 @@
                             <documentTypeEntry>
                                 <field name="documentTypeID">
                                     <String>6/jats/jats.framework/JATSKit - NISO JATS / NLM BITS</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/json/json_schema.framework/JSON Schema</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -1014,14 +928,6 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/json/openapi.framework/OpenAPI</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
                                     <String>6/extensions/extensions.framework/Oxygen Extensions</String>
                                 </field>
                                 <field name="enable">
@@ -1031,22 +937,6 @@
                             <documentTypeEntry>
                                 <field name="documentTypeID">
                                     <String>6/report/report.framework/Oxygen Report</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples/personal.framework/Personal (Sample)</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples-json/personal_sample_json_.framework/Personal (Sample-JSON)</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -1126,31 +1016,7 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>4/tei/teip5jtei.framework/TEI JTEI</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
                                     <String>6/tei/teip5jtei.framework/TEI JTEI</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples/travel-guide.framework/Travel Guide (Sample)</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples-json/travel_guide_sample_json.framework/Travel Guide (Sample-JSON)</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -1238,7 +1104,7 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/focheck/AHFormatter.framework/XSL-FO 1.1 with Antenna House extensions</String>
+                                    <String>6/xspec/xspec.framework/XSpec</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -1246,7 +1112,7 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/xspec/xspec.framework/XSpec</String>
+                                    <String>6/samples/application_form.framework/Application Form (Sample)</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -1262,7 +1128,7 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/extensions/framework_extension_script.framework/Framework Extension Script</String>
+                                    <String>6/samples/personal.framework/Personal (Sample)</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -1270,7 +1136,15 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/json/json.framework/JSON</String>
+                                    <String>6/samples/travel-guide.framework/Travel Guide (Sample)</String>
+                                </field>
+                                <field name="enable">
+                                    <Boolean>false</Boolean>
+                                </field>
+                            </documentTypeEntry>
+                            <documentTypeEntry>
+                                <field name="documentTypeID">
+                                    <String>6/focheck/AHFormatter.framework/XSL-FO 1.1 with Antenna House extensions</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
