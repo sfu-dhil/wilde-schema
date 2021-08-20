@@ -1,4 +1,4 @@
-# Lyon in Mourning Project Schema
+# Wilde Trials Project Schema
 
 This repository contains the schema and documentation for the Wilde Trials International News Archive, an HTML-encoded collection of news reports concerning the trials of Oscar Wilde in 1895. The project is led by Dr. Colette Colligan (SFU) with support provided by the Digital Humanities Innovation Lab (SFU Library).
 
