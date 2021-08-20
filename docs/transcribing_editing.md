@@ -83,7 +83,7 @@ For long letters, passages from literature, or testimony use paragraph breaks wi
 Use Unicode (UTF-8) consistently on all files to ensure the accented characters are encoded correctly.
 
 Transcribe everything in the news report, even if misspelled.
-Preserve original capitalisation and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
+Preserve original capitalization and punctuation. Note that it is not required to format italics or font changes, but text may be marked up as italicized (`<i>...</i>`) or bolded (`<b>...</b>`).
 
 Use the M dash for dashes.
 
