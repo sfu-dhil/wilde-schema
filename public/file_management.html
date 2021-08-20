@@ -1,27 +1,212 @@
-# File Management
-
-
-## Folder Structure
-
-The Wilde Trials International News Archive uses the following nested foldering structure for its text files: 
-
-- **Region**: Region folders are labelled by country: eg. France, Jamaica, etc...
-  - **Newspaper**: Newspaper sub-folders are labelled by newspaper title. 
-    - **News Reports**: News Reports are the individual Wilde news reports files.
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en" id="file_management">
    
-## File Names
-
-A unique file is created for each individual news report. The name of the news report should follow this format, making sure to preserve the article (“the”) when it is part of the newspaper title. 
-
-* The Australian Star - May 22 1895.xml
-
-When there is more than one report on a particular day, use this format:
-
-* The Australian Star - May 22 1895.a.xml
-* The Australian Star - May 22 1895.b.xml
-
-Do not use parentheses or apostrophes in file names. Instead, use this format:
-
-* Reynolds_s Newspaper - June 22 1895.b.xml
-
-	
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+      
+      <title>File Management</title>
+      
+      <meta name="robots" content="noindex"/>
+      
+      <link rel="stylesheet" href="css/documentation.css"/>
+      </head>
+   
+   <body>
+      
+      <div class="container">
+         
+         <nav>
+            
+            <ul>
+               <li><span class="nav-item"><a href="index.html">Home</a></span></li>
+               
+               <li><span class="nav-item"><a href="helpful_links.html">Helpful Links</a></span></li>
+               
+               <li class="expandable"><span class="nav-item"><a href="getting_started.html">Getting Started</a><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                           <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                     <li><span class="nav-item"><a href="getting_started.html#setting-up">Setting up</a></span></li>
+                     <li><span class="nav-item"><a href="getting_started.html#getting-a-copy-of-the-reports">Getting a copy of the reports</a></span></li>
+                     <li><span class="nav-item"><a href="getting_started.html#setting-up-oxygen">Setting up oXygen</a></span></li>
+                  </ul>
+               </li>
+               
+               <li class="expandable"><span class="nav-item"><a href="collecting_reports.html">Collecting Reports</a><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                           <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                     <li><span class="nav-item"><a href="collecting_reports.html#overview">Overview</a></span></li>
+                     <li><span class="nav-item"><a href="collecting_reports.html#search-protocols">Search Protocols</a></span></li>
+                     <li><span class="nav-item"><a href="collecting_reports.html#collection-protocols">Collection Protocols</a></span></li>
+                     <li><span class="nav-item"><a href="collecting_reports.html#headlines">Headlines</a></span></li>
+                     <li><span class="nav-item"><a href="collecting_reports.html#illustrations">Illustrations</a></span></li>
+                     <li><span class="nav-item"><a href="collecting_reports.html#newspaper-collection-tools">Newspaper Collection Tools</a></span></li>
+                  </ul>
+               </li>
+               
+               <li class="expandable"><span class="nav-item"><a href="workflow.html">GitHub and oXygen Workflow</a><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                           <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                     <li><span class="nav-item"><a href="workflow.html#updating-your-repository">Updating your Repository</a></span></li>
+                     <li><span class="nav-item"><a href="workflow.html#editing-in-oxygen">Editing in oXygen</a></span></li>
+                     <li><span class="nav-item"><a href="workflow.html#cleaning-up-old-reports">Cleaning Up Old Reports</a></span></li>
+                     <li><span class="nav-item"><a href="workflow.html#preview">Preview</a></span></li>
+                     <li><span class="nav-item"><a href="workflow.html#committing-changes">Committing Changes</a></span></li>
+                     <li><span class="nav-item"><a href="workflow.html#pushing-changes-to-github">Pushing Changes to GitHub</a></span></li>
+                     <li><span class="nav-item"><a href="workflow.html#creating-a-pull-request">Creating a Pull Request</a></span></li>
+                  </ul>
+               </li>
+               
+               <li class="expandable current expanded"><span class="nav-item"><span>File Management</span><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                           <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                     <li><span class="nav-item"><a href="file_management.html#folder-structure">Folder Structure</a></span></li>
+                     <li><span class="nav-item"><a href="file_management.html#file-names">File Names</a></span></li>
+                  </ul>
+               </li>
+               
+               <li class="expandable"><span class="nav-item"><a href="transcribing_editing.html">Transcribing and Editing</a><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                           <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                     <li><span class="nav-item"><a href="transcribing_editing.html#template">Template</a></span></li>
+                     <li><span class="nav-item"><a href="transcribing_editing.html#metadata">Metadata</a></span></li>
+                     <li class="expandable"><span class="nav-item"><a href="transcribing_editing.html#content">Content</a><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                           <li><span class="nav-item"><a href="transcribing_editing.html#headlines--signatures--omitted-text">Headlines &amp; Signatures &amp; Omitted Text</a></span></li>
+                           <li><span class="nav-item"><a href="transcribing_editing.html#formatting">Formatting</a></span></li>
+                           <li><span class="nav-item"><a href="transcribing_editing.html#transcriptions">Transcriptions</a></span></li>
+                           <li><span class="nav-item"><a href="transcribing_editing.html#omittedunreadable-text">Omitted/Unreadable Text</a></span></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               
+               
+               <li class="expandable"><span class="nav-item"><span>Appendix</span><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                           <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                     <li class="expandable"><span class="nav-item"><span>Elements</span><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                           <li><span class="nav-item"><a href="TEI.xh_a.html">&lt;a&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_b.html">&lt;b&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_body.html">&lt;body&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_br.html">&lt;br&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_div.html">&lt;div&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_head.html">&lt;head&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_html.html">&lt;html&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_i.html">&lt;i&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_link.html">&lt;link&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_meta.html">&lt;meta&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_p.html">&lt;p&gt;</a></span></li>
+                           <li><span class="nav-item"><a href="TEI.xh_title.html">&lt;title&gt;</a></span></li>
+                        </ul>
+                     </li>
+                     <li class="expandable"><span class="nav-item"><span>Model classes</span><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                           <li><span class="nav-item"><a href="TEI.xh_model.phrase.html">model.phrase</a></span></li>
+                        </ul>
+                     </li>
+                     <li class="expandable"><span class="nav-item"><span>Attribute classes</span><span class="nav-dropdown"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black" width="18px" height="18px">
+                                 <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></span></span><ul>
+                           <li><span class="nav-item"><a href="TEI.xh_att.id.html">att.id</a></span></li>
+                        </ul>
+                     </li>
+                  </ul>
+               </li>
+               </ul>
+            </nav>
+         
+         <main>
+            
+            <article>
+               
+               <h1>File Management</h1>
+               
+               <div class="div" id="folder-structure">
+                  
+                  <h2>Folder Structure</h2>
+                  
+                  <div class="p" id="_d2e694">The Wilde Trials International News Archive uses the following
+                     nested foldering structure for its text files:</div>
+                  
+                  <div class="list unordered" id="_d2e696">
+                     
+                     <div class="item" id="_d2e698">
+                        
+                        <div class="p" id="_d2e700">Region: Region folders are
+                           labelled by country: eg. France, Jamaica, etc...</div>
+                        
+                        <div class="list unordered" id="_d2e702">
+                           
+                           <div class="item" id="_d2e704">
+                              
+                              <div class="p" id="_d2e706">Newspaper: Newspaper
+                                 sub-folders are labelled by newspaper title.</div>
+                              
+                              <div class="list unordered" id="_d2e708">
+                                 
+                                 <div class="item" id="_d2e710">
+                                    
+                                    <div class="p" id="_d2e712">News Reports: News
+                                       Reports are the individual Wilde news reports files.</div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               
+               <div class="div" id="file-names">
+                  
+                  <h2>File Names</h2>
+                  
+                  <div class="p" id="_d2e725">A unique file is created for each individual news report. The
+                     name of the news report should follow this format, making sure to
+                     preserve the article (“the”) when it is part of the newspaper
+                     title.</div>
+                  
+                  <div class="list unordered" id="_d2e727">
+                     
+                     <div class="item" id="_d2e729">
+                        
+                        <div class="p" id="_d2e731">The Australian Star - May 22 1895.xml</div>
+                        </div>
+                     </div>
+                  
+                  <div class="p" id="_d2e735">When there is more than one report on a particular day, use this
+                     format:</div>
+                  
+                  <div class="list unordered" id="_d2e737">
+                     
+                     <div class="item" id="_d2e739">
+                        
+                        <div class="p" id="_d2e741">The Australian Star - May 22 1895.a.xml</div>
+                        </div>
+                     
+                     <div class="item" id="_d2e744">
+                        
+                        <div class="p" id="_d2e746">The Australian Star - May 22 1895.b.xml</div>
+                        </div>
+                     </div>
+                  
+                  <div class="p" id="_d2e751">Do not use parentheses or apostrophes in file names. Instead, use
+                     this format:</div>
+                  
+                  <div class="list unordered" id="_d2e753">
+                     
+                     <div class="item" id="_d2e755">
+                        
+                        <div class="p" id="_d2e757">Reynolds_s Newspaper - June 22 1895.b.xml</div>
+                        </div>
+                     </div>
+                  </div>
+               </article>
+            </main>
+         
+         
+         
+         </div>
+      
+      
+      
+      
+      <div id="popup" class="hidden">
+         
+         <div id="popup_content"></div>
+         </div>
+      <script src="js/documentation.js"></script>
+      </body>
+   </html>
