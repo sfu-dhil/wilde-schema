@@ -1,7 +1,7 @@
 # Collecting Reports
 
 ## Overview
-Newspapers around the world formatted news articles very differently, and digitization technologies have a variety of approaches to article segmentation. Together, these factors raise a big question: what is a news article? The Wilde Trials International News Archive has developed some criteria for determining what constitutes a news article (or what we commonly refer to as reports in the project) and gets transcribed as an individual file.
+Newspapers around the world formatted news articles very differently, and digitization technologies have a variety of approaches to article segmentation. Together, these factors raise a big question: what is a news article? The Wilde Trials International News Archive has developed some criteria for determining what constitutes a news article (commonly called reports in the project) and what gets transcribed as an individual file.
 
 ## Search Protocols
 Collect all relevant articles on the Wilde trials and aftermath between April 1 1895 to Dec 31 1895. When browsing a newspaper for articles, make sure to examine each issue printed within the period. When searching a newspaper database for articles, use the search term “Oscar Wilde.” Then try “Wilde,” “Queensberry,” and “Lord Alfred Douglas” to see if these terms catch more results.
