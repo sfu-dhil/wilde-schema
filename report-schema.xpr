@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="21.1">
+<project>
     <meta>
         <filters directoryPatterns="" filePatterns="\Qreport-schema.xpr\E" positiveFilePatterns="" showHiddenFiles="false"/>
         <options>
-            <serialized version="21.1" xml:space="preserve">
+            <serialized xml:space="preserve">
                 <serializableOrderedMap>
                     <entry>
                         <String>document.types</String>
                         <documentTypeDescriptor-array>
                             <documentTypeDescriptor>
+                                <field name="webResources">
+                                    <null/>
+                                </field>
                                 <field name="extensionPatch">
                                     <null/>
                                 </field>
@@ -328,6 +331,9 @@
                                 </field>
                             </documentTypeDescriptor>
                             <documentTypeDescriptor>
+                                <field name="webResources">
+                                    <null/>
+                                </field>
                                 <field name="extensionPatch">
                                     <null/>
                                 </field>
@@ -744,6 +750,14 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
+                                    <String>6/samples/application_form.framework/Application Form (Sample)</String>
+                                </field>
+                                <field name="enable">
+                                    <Boolean>false</Boolean>
+                                </field>
+                            </documentTypeEntry>
+                            <documentTypeEntry>
+                                <field name="documentTypeID">
                                     <String>6/dita/dita.framework/DITA</String>
                                 </field>
                                 <field name="enable">
@@ -944,6 +958,14 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
+                                    <String>6/samples/personal.framework/Personal (Sample)</String>
+                                </field>
+                                <field name="enable">
+                                    <Boolean>false</Boolean>
+                                </field>
+                            </documentTypeEntry>
+                            <documentTypeEntry>
+                                <field name="documentTypeID">
                                     <String>6/publishing_template/publishing_template.framework/Publishing Template</String>
                                 </field>
                                 <field name="enable">
@@ -1017,6 +1039,14 @@
                             <documentTypeEntry>
                                 <field name="documentTypeID">
                                     <String>6/tei/teip5jtei.framework/TEI JTEI</String>
+                                </field>
+                                <field name="enable">
+                                    <Boolean>false</Boolean>
+                                </field>
+                            </documentTypeEntry>
+                            <documentTypeEntry>
+                                <field name="documentTypeID">
+                                    <String>6/samples/travel-guide.framework/Travel Guide (Sample)</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
@@ -1104,6 +1134,14 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
+                                    <String>6/focheck/AHFormatter.framework/XSL-FO 1.1 with Antenna House extensions</String>
+                                </field>
+                                <field name="enable">
+                                    <Boolean>false</Boolean>
+                                </field>
+                            </documentTypeEntry>
+                            <documentTypeEntry>
+                                <field name="documentTypeID">
                                     <String>6/xspec/xspec.framework/XSpec</String>
                                 </field>
                                 <field name="enable">
@@ -1112,39 +1150,7 @@
                             </documentTypeEntry>
                             <documentTypeEntry>
                                 <field name="documentTypeID">
-                                    <String>6/samples/application_form.framework/Application Form (Sample)</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
                                     <String>6/samples/form-controls.framework/Form Controls (Sample)</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples/personal.framework/Personal (Sample)</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/samples/travel-guide.framework/Travel Guide (Sample)</String>
-                                </field>
-                                <field name="enable">
-                                    <Boolean>false</Boolean>
-                                </field>
-                            </documentTypeEntry>
-                            <documentTypeEntry>
-                                <field name="documentTypeID">
-                                    <String>6/focheck/AHFormatter.framework/XSL-FO 1.1 with Antenna House extensions</String>
                                 </field>
                                 <field name="enable">
                                     <Boolean>false</Boolean>
