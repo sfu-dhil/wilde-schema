@@ -124,11 +124,11 @@
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.region']">
                            <sch:assert
-                              test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"
+                              test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','New Zealand','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"
                               > Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
                               Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy,
-                              Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto
-                              Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
+                              Jamaica, Malta, Mauritius, Mexico, New Zealand, Northern Ireland, Panama, 
+                              Puerto Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
                            </sch:assert>
                         </sch:rule>
                      </constraint>

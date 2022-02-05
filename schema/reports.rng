@@ -5,10 +5,10 @@
          xmlns:xlink="http://www.w3.org/1999/xlink"
          datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
          ns="http://www.w3.org/1999/xhtml"><!--
-Schema generated from ODD source 2021-08-23T18:08:44Z. .
-TEI Edition: Version 4.2.2. Last updated on
-	9th April 2021, revision 609a109b1
-TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
+Schema generated from ODD source 2022-02-05T00:59:52Z. .
+TEI Edition: Version 4.3.0. Last updated on
+        31st August 2021, revision b4f72b1ff
+TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.3.0/
   
 --><!---->
    <sch:ns xmlns:sch="http://purl.oclc.org/dsdl/schematron"
@@ -109,10 +109,10 @@ TEI Edition Location: https://www.tei-c.org/Vault/P5/Version 4.2.2/
                       xmlns:xh="http://www.w3.org/1999/xhtml"
                       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                       context="xh:meta[@name='dc.region']">
-               <sch:assert test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"> Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
+               <sch:assert test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','New Zealand','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"> Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
                               Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy,
-                              Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto
-                              Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
+                              Jamaica, Malta, Mauritius, Mexico, New Zealand, Northern Ireland, Panama, 
+                              Puerto Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
                            </sch:assert>
             </sch:rule>
          </pattern>

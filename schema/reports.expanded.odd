@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xh="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:base="file:/Users/michael/Documents/wilde-schema/schema/reports.odd"><?TEIVERSION Version 4.2.2. Last updated on
-	9th April 2021, revision 609a109b1?>
+<?xml version="1.0" encoding="utf-8"?><TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:xh="http://www.w3.org/1999/xhtml" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:base="file:/Users/michael/Documents/sfu/wilde-schema/schema/reports.odd"><?TEIVERSION Version 4.3.0. Last updated on
+        31st August 2021, revision b4f72b1ff?>
    <teiHeader>
       <fileDesc>
          <titleStmt>
@@ -79,10 +79,10 @@
                      <constraint>
                         <sch:ns uri="http://www.w3.org/1999/xhtml" prefix="xh"/>
                         <sch:rule context="xh:meta[@name='dc.region']">
-                           <sch:assert test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"> Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
+                           <sch:assert test="@content = ('Algeria','Australia','Austria','Bahamas','Belgium','Britain','Canada','Dominica','Egypt','France','Germany','Ireland','Italy','Jamaica','Malta','Mauritius','Mexico','New Zealand','Northern Ireland','Panama','Puerto Rico','Spain','Sri Lanka','Switzerland','Turkey','United States','Vietnam')"> Region must be one of Algeria, Australia, Austria, Bahamas, Belgium,
                               Britain, Canada, Dominica, Egypt, France, Germany, Ireland, Italy,
-                              Jamaica, Malta, Mauritius, Mexico, Northern Ireland, Panama, Puerto
-                              Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
+                              Jamaica, Malta, Mauritius, Mexico, New Zealand, Northern Ireland, Panama, 
+                              Puerto Rico, Spain, Sri Lanka, Switzerland, Turkey, United States, Vietnam
                            </sch:assert>
                         </sch:rule>
                      </constraint>
