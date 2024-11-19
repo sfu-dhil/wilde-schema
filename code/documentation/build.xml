@@ -85,13 +85,13 @@
         <echo message="${echo.separator}"/>
         <echo message="Processing the ODD and combining with P5..."/>
         <echo message="${echo.separator}"/>
-        <java jar="${saxon}" fork="true" failonerror="true">
+        <exec executable="saxon">
             <arg line="-s:${odd.expanded}"/>
             <arg line="-o:${odd.processed}"/>
             <arg line="-xsl:'${odd2odd}'"/>
             <arg line="defaultTEIServer=https://www.tei-c.org/Vault/P5/"/>
             <arg line="defaultTEIVersion=current"/>
-        </java>
+        </exec>
     </target>
     
     

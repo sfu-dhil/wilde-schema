@@ -15,6 +15,7 @@
     <property name="TEIStylesheets"
         value="https://raw.githubusercontent.com/TEIC/Stylesheets/released"/>
     <property name="saxon" value="${lib.dir}/saxon10HE.jar"/>
+    <property name="out" value="${basedir}/public"/>
 
     <condition property="jingAvailable">
         <available type="file" file="${jing}"/>
@@ -87,6 +88,7 @@
             <property name="TEIStylesheets" value="${TEIStylesheets}"/>
             <property name="saxon" value="${saxon}"/>
             <property name="schema" value="${schema}"/>
+            <property name="out" value="${out}"/>
         </ant>
     </target>
 
